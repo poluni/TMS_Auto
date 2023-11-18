@@ -12,11 +12,11 @@ class Program
         {
             if (isEven)
             {
-                Console.Write("Число четное");
+                Console.Write($"Число \"{userNumber}\" - четное");
             }
             else
             {
-                Console.Write("Число нечетное");
+                Console.Write($"Число \"{userNumber}\" - нечетное");
             }
         }
     }
