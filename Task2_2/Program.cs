@@ -18,18 +18,16 @@ namespace TMS_Auto
             Console.Write("Введите число, которое нужно удалить: ");
             int numberToDelete = Convert.ToInt32(Console.ReadLine());
 
-            bool isInArray = false;
             int countInArray = 0;
             for (int i = 0; i <= array.GetUpperBound(0); i++)
             {
                 if (numberToDelete == array[i])
                 {
-                    if (countInArray == 0) isInArray = true;
                     countInArray++;
                 }
             }
 
-            if (isInArray)
+            if (countInArray > 0)
             {
                 int[] newArray = new int[array.GetLength(0) - countInArray];
                 int j = 0;
