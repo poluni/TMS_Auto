@@ -2,7 +2,7 @@
 
 namespace TMS_Auto
 {
-    static class Task26
+    static class Task27
     {
         static void Main(string[] args)
         {
