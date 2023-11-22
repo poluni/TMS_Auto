@@ -1,10 +1,11 @@
-﻿namespace TMS_Auto
+﻿// Тема 2 "Массивы и циклы". Задача 3.
+
+namespace TMS_Auto
 {
     static class Task23
     {
         static void Main(string[] args)
         {
-
             Console.Write("Введите размер массива чисел: ");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
             int[] array = new int[arrayLength];
