@@ -6,7 +6,7 @@ namespace TMS_Auto
     {
         static void Main(string[] args)
         {
-            Console.Write("Numbers array: ");
+            Console.Write("Массив чисел: ");
             int[] array = new int[20];
             for (int i = 0; i <= array.GetUpperBound(0); i++)
             {
@@ -16,7 +16,7 @@ namespace TMS_Auto
             Console.WriteLine();
 
 
-            Console.Write("Enter your number: ");
+            Console.Write("Введите свое число: ");
             int userNumber = Convert.ToInt32(Console.ReadLine());
 
             bool isInArray = false;
@@ -29,14 +29,13 @@ namespace TMS_Auto
                 }
             }
 
-
             if (isInArray)
             {
-                Console.WriteLine($"Number {userNumber} is in an array");
+                Console.WriteLine($"Число {userNumber} в массиве");
             }
             else
             {
-                Console.WriteLine($"Number {userNumber} isn't in an array");
+                Console.WriteLine($"Число {userNumber} не в массиве");
             }
         }
     }
