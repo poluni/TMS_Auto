@@ -10,6 +10,7 @@ class Program
         Console.Write("Введите второе число (ввод дробных чисел с разделителем \",\" ): ");
         decimal secondNumber = Convert.ToDecimal(Console.ReadLine());
         decimal result = DoOperation(firstNumber, operationSign, secondNumber);
+
         if (!divisionByZero(operationSign, secondNumber))
         {
             Console.WriteLine($"{firstNumber} {operationSign} {secondNumber} = {result}");
@@ -47,10 +48,7 @@ class Program
         decimal DoDivision(decimal firstNumber, decimal secondNumber)
         {
             decimal divResult = 0.0m;
-            if (!divisionByZero("/", secondNumber))
-            {
-                divResult = firstNumber / secondNumber;
-            }
+            divResult = firstNumber / secondNumber;
             return divResult;
         }
 
