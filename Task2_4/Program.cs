@@ -6,14 +6,17 @@ namespace TMS_Auto
     {
         static void Main(string[] args)
         {
-            int[] arrayOne = InizializeArray(5, 80);
-            int[] arrayTwo = InizializeArray(5, 85);
+            int[] arrayOne = InizializeArray(5, 80);            
             Console.WriteLine("Изначальный массив чисел первого массива: ");
             OutputArray(arrayOne);
+
+            int[] arrayTwo = InizializeArray(5, 85);
             Console.WriteLine("Изначальный массив чисел второго массива: ");
             OutputArray(arrayTwo);
+
             double AveregeOfArrayOne = Averege(arrayOne);
             double AveregeOfArrayTwo = Averege(arrayTwo);
+
             if (AveregeOfArrayOne > AveregeOfArrayTwo)
             {
                 Console.WriteLine("Среднее значение ({0}) в первом массиве больше, чем во втором ({1})",
