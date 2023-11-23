@@ -1,10 +1,21 @@
-﻿namespace Task2;
+﻿using System;
+
+namespace Task2;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Введите число от -50 до 50: ");
-        float userNumber = Convert.ToSingle(Console.ReadLine());
+        float userNumber = 0.0f;
+        do 
+        {
+            Console.Write("Введите число от -50 до 50: ");
+            userNumber = Convert.ToSingle(Console.ReadLine());
+            if (userNumber < -50 && userNumber > 50) 
+            {                 
+                Console.WriteLine("Введенное число не попало в промежуток [-50, 50]");
+            }
+        } while (userNumber < -50 || userNumber > 50);
+
         if (userNumber >= -40 && userNumber <= -10)
         {
             Console.WriteLine("Введенное число попало в промежуток [-40, -10]");
