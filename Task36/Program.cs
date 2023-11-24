@@ -10,12 +10,15 @@ namespace TMS_Auto
             using (StreamReader reader = new StreamReader(path))
             {
                 string line = String.Empty;
-                string word = String.Empty;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    word = line.Trim().Replace("\t", " ").Replace("  ", " ");
+                    if (line.Length <= 100)
+                    {
+                        string word = line.Trim().Replace("\t", " ").Replace("  ", " ");
+                        Console.WriteLine($"Нормализованная строка: {word}");
+                    }
+                    else Console.WriteLine($"В строке больше 100 символов.");
                 }
-                Console.WriteLine($"Нормализованная строка: {word}");
             }
         }
     }
