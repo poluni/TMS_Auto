@@ -1,4 +1,5 @@
 ﻿// Theme 3 "Strings". Task 6.
+using System.Text;
 
 namespace TMS_Auto
 {
@@ -12,9 +13,10 @@ namespace TMS_Auto
                 string line = String.Empty;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Length <= 100)
+                    StringBuilder sb = new StringBuilder(line, 100);
+                    if (sb.Length <= 100)
                     {
-                        string word = line.Trim().Replace("\t", " ").Replace("  ", " ");
+                        string word = sb.Replace("\t", " ").Replace("  ", " ").ToString();
                         Console.WriteLine($"Нормализованная строка: {word}");
                     }
                     else Console.WriteLine($"В строке больше 100 символов.");
