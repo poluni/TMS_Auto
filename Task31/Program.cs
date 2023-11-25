@@ -11,7 +11,7 @@ namespace TMS_Auto
             FileInfo fileInfo = new FileInfo(@"D:\git-auto\TMS_Auto\Task31\data.txt");
             using (StreamReader reader = fileInfo.OpenText())
             {
-                string reoplacedLine = String.Empty;
+                string replacedLine = String.Empty;
                 string line = String.Empty;
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -20,7 +20,7 @@ namespace TMS_Auto
                     {
                         if (Char.IsDigit(symbol))
                         {
-                            reoplacedLine = reoplacedLine.Replace(symbol, new char());
+                            replacedLine = reoplacedLine.Replace(symbol, new char());
                         }
                     }
                 }
