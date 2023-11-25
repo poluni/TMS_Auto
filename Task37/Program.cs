@@ -1,5 +1,7 @@
 ﻿// Theme 3 "Strings". Task 7.
 
+using System.Text;
+
 namespace TMS_Auto
 {
     static class Task37
@@ -16,7 +18,8 @@ namespace TMS_Auto
                 {
                     if (line.Length < 100)
                     {
-                        string normalizedString = line.Trim().Replace("\t", " ").Replace("  ", " ");
+                        StringBuilder sb = new StringBuilder(line, 100);
+                        string normalizedString = sb.Replace("\t", " ").Replace("  ", " ").ToString();
                         words = normalizedString.Split(" ");
                         if (words.GetLength(0) < 20)
                         {
