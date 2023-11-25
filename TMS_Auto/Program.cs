@@ -1,4 +1,7 @@
-﻿namespace TMS_Auto
+﻿using System.Text.RegularExpressions;
+using System.Text;
+
+namespace TMS_Auto
 {
     static class Program
     {
@@ -341,6 +344,151 @@
             long number = 19876543210;
             string result = string.Format("{0:+# (###) ###-##-##}", number);
             Console.WriteLine(result);                                                      // +1 (987) 654-32-10
+                                                                                            // -=================== String Builder ===================
+                                                                                            // -=================== Constructor
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb1 = new StringBuilder("Hello World!!!");
+            Console.WriteLine($"Значение переменной: {sb1.ToString()}");    // Hello World!!!
+            Console.WriteLine(sb1.ToString());                              // Hello World!!!
+            Console.WriteLine($"Просто объект: {sb1}");                     // Hello World!!!
+
+            // -=================== Append ===================
+            StringBuilder sbAppend = new StringBuilder();
+            sbAppend.Append("Hello, ");
+            sbAppend.Append("world!");
+
+            Console.WriteLine($"Append : {sbAppend}");                     // Hello World!
+            Console.WriteLine($"Length : {sbAppend.Length}");              // 13
+
+            // -=================== AppendLine
+            StringBuilder sbAppendLine = new StringBuilder();
+            sbAppendLine.Append("Hello, ");
+            sbAppendLine.AppendLine("world!");
+            sbAppendLine.AppendLine("How are you?");
+
+            Console.WriteLine($"AppendLine : {sbAppendLine}");
+
+            // -=================== AppendFormat
+            // Пример 1: Простой пример форматирования
+            StringBuilder sb1AppendFormat = new StringBuilder();
+            sb1AppendFormat.AppendFormat("Hello, {0}! Today is {1}.", "John", DateTime.Now.DayOfWeek);
+            Console.WriteLine(sb1AppendFormat.ToString());
+            // Вывод: Hello, John! Today is Wednesday.
+
+            // Пример 2: Форматирование чисел
+            StringBuilder sb2AppendFormat = new StringBuilder();
+            sb2AppendFormat.AppendFormat("The price is: {0:C}", 123.45);
+            Console.WriteLine(sb2AppendFormat.ToString());                          // Вывод: The price is: $123.45
+
+            // Пример 3: Форматирование с использованием различных форматов
+            StringBuilder sb3AppendFormat = new StringBuilder();
+            sb3AppendFormat.AppendFormat("Decimal: {0:D}, Hexadecimal: {0:X}, Scientific: {1:E}", 42, Math.PI);
+            Console.WriteLine(sb3AppendFormat.ToString());                          // Вывод: Decimal: 42, Hexadecimal: 2A, Scientific: 3.141593E+00
+
+            // -=================== Replace
+            StringBuilder sbReplace = new StringBuilder("Hello, world!");
+            sbReplace.Replace("world", "C#");
+
+            Console.WriteLine($"Replace : {sbReplace}");                    // Вывод: Hello, C#!
+
+            // -=================== Remove
+            StringBuilder sbRemove = new StringBuilder("Hello, world!");
+            sbRemove.Remove(7, 6);                                          // Удаляем "world"
+
+            Console.WriteLine($"Remove : {sbRemove}");                      // Вывод: Hello!
+
+            // -=================== Insert
+            StringBuilder sbInsert = new StringBuilder("Hello!");
+            sbInsert.Insert(5, " world");
+
+            Console.WriteLine($"Insert : {sbInsert}");                      // Вывод: Hello world!        
+
+            // -=================== Capacity
+            StringBuilder sbCapacity = new StringBuilder();
+
+            // Получаем текущую емкость
+            int initialCapacity = sbCapacity.Capacity;
+            Console.WriteLine($"Initial Capacity: {initialCapacity}");
+
+            // Добавляем текст
+            sbCapacity.Append("Hello, world!");
+
+            // Получаем новую емкость после добавления текста
+            int newCapacity = sbCapacity.Capacity;
+            Console.WriteLine($"New Capacity: {newCapacity}");
+
+            // Устанавливаем явно емкость (в данном случае, увеличиваем)
+            sbCapacity.Capacity = newCapacity * 2;
+
+            // Получаем емкость после установки
+            int updatedCapacity = sbCapacity.Capacity;
+            Console.WriteLine($"Updated Capacity: {updatedCapacity}");
+
+            // -=================== Регулярные выражения (Regex) ===================-
+            // -=================== Cоответствие строки регулярному выражению
+            string input = "Hello, 123!";
+            string pattern = @"(\d+)"; // Шаблон: одна или более цифр
+
+            bool isMatch = Regex.IsMatch(input, pattern);
+
+            if (isMatch)
+            {
+                Console.WriteLine("Строка содержит цифры.");
+            }
+            else
+            {
+                Console.WriteLine("Строка не содержит цифры.");
+            }
+
+            // -=================== Извлечение подстрок с использованием групп
+            // -=================== Пример 1
+            string input1 = "Дата: 2023-11-19";
+            string pattern1 = @"Дата: (\d{4}-\d{2}-\d{2})"; // Группа для извлечения даты
+
+            Match match = Regex.Match(input1, pattern1);
+
+            if (match.Success)
+            {
+                string date = match.Groups[1].Value;
+                Console.WriteLine($"Извлеченная дата: {date}");
+            }
+            else
+            {
+                Console.WriteLine("Дата не найдена.");
+            }
+
+            // -=================== Пример 2
+            string input11 = "Дата: 2023-11-19, Дата: 2023-12-25";
+            string pattern12 = @"Дата: (\d{4}-\d{2}-\d{2})"; // Группа для извлечения даты
+
+            MatchCollection matches = Regex.Matches(input11, pattern12);
+
+            if (matches.Count > 0)
+            {
+                Console.WriteLine($"Найдено {matches.Count} вхождений:");
+
+                foreach (Match matchItem in matches)
+                {
+                    string date = matchItem.Groups[1].Value;
+                    Console.WriteLine($"Извлеченная дата: {date}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Дата не найдена.");
+            }
+
+            // -=================== Замена с использованием регулярного выражения
+            string input2 = "Текст с цифрами: 12345 и 67890";
+            string pattern2 = @"\d+"; // = @"(\d+) Шаблон: одна или более цифр
+
+            string replacement = "###";
+
+            string result2 = Regex.Replace(input2, pattern2, replacement);
+
+            Console.WriteLine($"Исходная строка: {input2}");
+            Console.WriteLine($"Строка после замены: {result2}");
+
         }
     }
 }
