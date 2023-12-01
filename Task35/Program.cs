@@ -3,6 +3,7 @@
 using System.Reflection.Metadata;
 using System.Text;
 using System.Text.RegularExpressions;
+using TMS_Auto;
 
 namespace TMS_Auto
 {
@@ -35,16 +36,16 @@ namespace TMS_Auto
                 MatchCollection matches = Regex.Matches(inputLine, pattern);
                 int count = 0;
                 foreach (Match matchItem in matches)
-                {                    
+                {
                     string result = matchItem.Groups[0].Value.ToLower();
                     count++;
                     Console.Write(result);
-                    if (matches.Count != count) 
+                    if (matches.Count != count)
                     {
                         Console.Write("/");
                     }
                     else Console.WriteLine();
-                }                
+                }
             }
 
             public static void OutputOnlyLettersToUpper(string inputLine)
@@ -71,7 +72,7 @@ namespace TMS_Auto
             {
                 if (inputLine.Contains("abc", StringComparison.OrdinalIgnoreCase))
                     Console.WriteLine($"В строке {inputLine} содержится последовательность \"abc\"");
-                 else 
+                else
                     Console.WriteLine($"В строке {inputLine} нет последовательности \"abc\"");
 
             }
@@ -93,7 +94,7 @@ namespace TMS_Auto
                     Console.WriteLine($"Строка {inputLine} не заканчивается на \"1a2b\"");
 
             }
-                    }
+        }
 
 
         static void Main(string[] args)

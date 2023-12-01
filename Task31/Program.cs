@@ -15,16 +15,16 @@ namespace TMS_Auto
                 string line = String.Empty;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    reoplacedLine = line.Replace("test", "testing");
-                    foreach (char symbol in reoplacedLine)
+                    replacedLine = line.Replace("test", "testing");
+                    foreach (char symbol in replacedLine)
                     {
                         if (Char.IsDigit(symbol))
                         {
-                            replacedLine = reoplacedLine.Replace(symbol, new char());
+                            replacedLine = replacedLine.Replace(symbol, new char());
                         }
                     }
                 }
-                Console.WriteLine(reoplacedLine);
+                Console.WriteLine(replacedLine);
             }
         }
     }
