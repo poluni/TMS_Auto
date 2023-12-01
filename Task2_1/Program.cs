@@ -8,6 +8,7 @@ namespace TMS_Auto
         {
             Console.Write("Массив чисел: ");
             int[] array = new int[20];
+
             for (int i = 0; i <= array.GetUpperBound(0); i++)
             {
                 array[i] = new Random().Next(100);
