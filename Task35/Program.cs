@@ -15,6 +15,7 @@ namespace TMS_Auto
             {
                 string pattern = @"\d{4}";
                 MatchCollection matches = Regex.Matches(inputLine, pattern);
+
                 foreach (Match matchItem in matches)
                 {
                     string number = matchItem.Groups[0].Value;
@@ -35,11 +36,13 @@ namespace TMS_Auto
                 string pattern = @"[a-zA-Z]{3}|(?:[a-z])";
                 MatchCollection matches = Regex.Matches(inputLine, pattern);
                 int count = 0;
+
                 foreach (Match matchItem in matches)
                 {
                     string result = matchItem.Groups[0].Value.ToLower();
                     count++;
                     Console.Write(result);
+
                     if (matches.Count != count)
                     {
                         Console.Write("/");
@@ -55,11 +58,13 @@ namespace TMS_Auto
                 int count = 0;
                 StringBuilder sb = new StringBuilder();
                 Console.Write("Letters:");
+
                 foreach (Match matchItem in matches)
                 {
                     sb.Append(matchItem.Groups[0].Value.ToUpper());
                     count++;
                     Console.Write(sb);
+
                     if (matches.Count != count)
                     {
                         Console.Write("/");
@@ -103,6 +108,7 @@ namespace TMS_Auto
             using (StreamReader reader = new StreamReader(path))
             {
                 string line = String.Empty;
+
                 while ((line = reader.ReadLine()) != null)
                 {
                     Document.OutputFirstNumbersBlocks(line);
