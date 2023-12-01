@@ -43,10 +43,7 @@ namespace TMS_Auto
                     count++;
                     Console.Write(result);
 
-                    if (matches.Count != count)
-                    {
-                        Console.Write("/");
-                    }
+                    if (matches.Count != count) Console.Write("/");
                     else Console.WriteLine();
                 }
             }
