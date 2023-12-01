@@ -7,7 +7,7 @@ namespace TMS_Auto
         static void Main(string[] args)
         {
 
-            int[] array = new int [10];
+            int[] array = new int[10];
             for (int i = 0; i <= array.GetUpperBound(0); i++)
             {
                 array[i] = new Random().Next(100);
@@ -15,16 +15,12 @@ namespace TMS_Auto
             Console.WriteLine("Изначальный массив чисел: ");
             OutputArray(array);
 
-            int[] newArray = new int[array.GetLength(0)];
-            for (int i = 0; i <= array.GetUpperBound(0); i++)
+            for (int i = 1; i <= array.GetUpperBound(0); i = i + 2)
             {
-                if (i % 2 != 0)
-                {
-                    newArray[i] = array[i];
-                }
+                array[i] = 0;
             }
             Console.WriteLine("Массив, где каждый элемент с нечётным индексом заменен на нуль: ");
-            OutputArray(newArray);
+            OutputArray(array);
 
             int[] OutputArray(int[] array)
 
@@ -35,7 +31,6 @@ namespace TMS_Auto
                 }
                 Console.WriteLine();
                 return array;
-
             }
         }
     }
