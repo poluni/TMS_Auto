@@ -8,7 +8,7 @@ namespace TMS_Auto
     {
         static void Main(string[] args)
         {
-            FileInfo fileInfo = new FileInfo(@"D:\git-auto\TMS_Auto\Task31\data.txt");
+            FileInfo fileInfo = new FileInfo(@"DataFiles\data.txt"); 
             using (StreamReader reader = fileInfo.OpenText())
             {
                 string replacedLine = String.Empty;
