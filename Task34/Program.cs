@@ -6,14 +6,12 @@ namespace TMS_Auto
     {
         static void Main(string[] args)
         {
-            string inputLine = "Плохой день.";
+            string inputLine = "Плохой день.        ";
             string removeWord = "плохой";
             string insertWord = "Хороший";
 
-            int positionOfRemove = inputLine.Length - removeWord.Length;
-            string substringWithoutRemoveWord = inputLine.Substring(positionOfRemove);
-
             int positionOfInsert = inputLine.IndexOf(removeWord, StringComparison.OrdinalIgnoreCase);
+            string substringWithoutRemoveWord = inputLine.Substring(positionOfInsert + removeWord.Length);
             string substringWithInsertWord = substringWithoutRemoveWord.Insert(positionOfInsert, insertWord);
 
             int positionOfPoint = substringWithInsertWord.LastIndexOf('.');
