@@ -21,46 +21,39 @@ namespace TMS_Auto
             }
             Console.WriteLine();
 
-            Console.WriteLine("Максимальное значение в массиве: {0}", Max(array));
-            Console.WriteLine("Минимальное значение в массиве: {0}", Min(array));
-            Console.WriteLine("Среднее значение в массиве: {0}", Averege(array));
+            int maxNumber = 0;
 
-
-            int Max(int[] array)
+            for (int i = 0; i <= array.GetUpperBound(0); i++)
             {
-                int maxNumber = 0;
-                for (int i = 0; i <= array.GetUpperBound(0); i++)
+                if (array[i] > maxNumber)
                 {
-                    if (array[i] > maxNumber)
-                    {
-                        maxNumber = array[i];
-                    }
+                    maxNumber = array[i];
                 }
-                return maxNumber;
             }
 
-            int Min(int[] array)
+            Console.WriteLine($"Максимальное значение в массиве: {maxNumber}");
+
+            int minNumber = array.First();
+
+            for (int i = 0; i <= array.GetUpperBound(0); i++)
             {
-                int minNumber = array.First();
-                for (int i = 0; i <= array.GetUpperBound(0); i++)
+                if (array[i] < minNumber)
                 {
-                    if (array[i] < minNumber)
-                    {
-                        minNumber = array[i];
-                    }
+                    minNumber = array[i];
                 }
-                return minNumber;
             }
 
-            double Averege(int[] array)
-            {
-                int sum = 0;
-                foreach (int num in array)
-                {
-                    sum += num;
-                }
-                return (double)sum / (array.GetLength(0));
-            }
-       }
+            Console.WriteLine($"Минимальное значение в массиве: {minNumber}");
+
+            int midIndex = array.GetLength(0) / 2;
+            bool isEven = midIndex == (midIndex >> 1) << 1;
+
+            if (isEven)
+                Console.WriteLine("Среднее значение массива: {0}, {1}",
+                    array[midIndex - 1], array[midIndex]);
+            else
+                Console.WriteLine("Среднее значение массива: {0}",
+                   array[midIndex]);
+        }
     }
 }
