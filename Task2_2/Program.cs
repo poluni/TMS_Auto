@@ -47,14 +47,13 @@ namespace TMS_Auto
             }
 
 
-            int[] OutputArray(int[] array)
+            void OutputArray(int[] array)
             {
                 for (int i = 0; i <= array.GetUpperBound(0); i++)
                 {
                     Console.Write($" {array[i]} ");
                 }
                 Console.WriteLine();
-                return array;
             }
         }
     }
