@@ -1,5 +1,6 @@
 ﻿// Theme 3 "Strings". Task 6.
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace TMS_Auto
 {
@@ -16,7 +17,8 @@ namespace TMS_Auto
                     StringBuilder sb = new StringBuilder(line, 100);
                     if (sb.Length <= 100)
                     {
-                        string word = sb.Replace("\t", " ").Replace("  ", " ").ToString();
+                        string pattern = @"[\s]{2,}|[\t]+";
+                        string word = Regex.Replace(line, pattern, " ");
                         Console.WriteLine($"Нормализованная строка: {word}");
                     }
                     else Console.WriteLine($"В строке больше 100 символов.");
