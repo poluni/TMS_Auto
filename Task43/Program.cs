@@ -6,7 +6,8 @@ namespace Task43
     {
         static void Main(string[] args)
         {
-            ATM atm1 = new ATM();
+            ATM atm1 = new ATM(100, 90, 80);
+            atm1.WithdrawalFromCard(100, 90, 80);
             atm1.PutOnCard(amount20: 2, amount100: 16);
 
             Console.WriteLine(atm1.WithdrawalFromCard(amount20: 2, amount100: 16) ?
