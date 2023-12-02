@@ -13,7 +13,7 @@ namespace TMS_Auto
             {
                 string line = String.Empty;
                 string finalString = String.Empty;
-                string[] words = new string[] { };
+                string[] words = { };
                 while ((line = reader.ReadLine()) != null)
                 {
                     if (line.Length < 100)
