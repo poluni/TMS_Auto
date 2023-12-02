@@ -1,6 +1,7 @@
 ﻿// Theme 3 "Strings". Task 7.
 
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace TMS_Auto
 {
@@ -18,8 +19,8 @@ namespace TMS_Auto
                 {
                     if (line.Length < 100)
                     {
-                        StringBuilder sb = new StringBuilder(line, 100);
-                        string normalizedString = sb.Replace("\t", " ").Replace("  ", " ").ToString();
+                        string pattern = @"[\s]{2,}|(?:[\t]+)";
+                        string normalizedString = Regex.Replace(line, pattern, " ");
                         words = normalizedString.Split(" ");
                         if (words.GetLength(0) < 20)
                         {
