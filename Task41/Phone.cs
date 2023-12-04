@@ -28,14 +28,14 @@ namespace Task41
             this.weight = weight;
         }
 
-        public void receiveCall(string name) => Console.WriteLine($"Звонит {name}");
+        public void ReceiveCall(string name) => Console.WriteLine($"Звонит {name}");
 
-        public string getNumber()
+        public string GetNumber()
         {
             return this.number;
         }
 
-        public void sendMessage(params string[] numbers)
+        public void SendMessage(params string[] numbers)
         {
             foreach (string number in numbers)
             {
