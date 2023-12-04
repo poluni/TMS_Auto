@@ -32,6 +32,5 @@ namespace Task42
         public void ShowBalance() => Console.WriteLine(
             string.Format("Баланс на счете {0}: {1:C2}",
             accountNumber, balance));
-
     }
 }
