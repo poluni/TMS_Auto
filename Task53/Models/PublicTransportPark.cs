@@ -8,9 +8,6 @@ namespace Task53.Models
 {
     internal class PublicTransportPark
     {
-        protected virtual string AddNewTransportType(string transportType)
-        {
-            return "";
-        }
+        protected virtual string AddNewTransportType(string transportType) => String.Empty;
     }
 }

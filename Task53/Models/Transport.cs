@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Task53.Models
 {
-    internal class Transport : PublicTransportPark
+    abstract class Transport : PublicTransportPark
     {
-        private string[] transportTypes = new string[]{ "Electric", "Rail", "Gasoline" };
+        public abstract string GetTransportType();
 
-        public virtual string GetTransportType()
-        {
-            return "";
-        }
+        public abstract string GetTransportName();
 
-        protected sealed override string AddNewTransportType(string transportType)
-        {
-            return "";
-        }
+        public abstract int GetSeatsNumber();
+
+        public abstract string GetDestination();
+
+        public abstract DateTime GetDepartureTime();
+
+        protected sealed override string AddNewTransportType(string transportType) => String.Empty;
     }
 }
