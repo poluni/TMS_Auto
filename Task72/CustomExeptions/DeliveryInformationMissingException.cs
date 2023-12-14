@@ -15,7 +15,6 @@ namespace Task72.CustomExeptions
 
         public DeliveryInformationMissingException(string message) : this() 
         {
-            Console.WriteLine(base.GetType().ToString());
             Console.WriteLine(message);
         }
     }
