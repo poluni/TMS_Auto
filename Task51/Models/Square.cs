@@ -10,7 +10,11 @@ namespace Task51.Models
     {
         public Square(double a) : base(a) => Length = a;
 
-        public override void GetArea() =>
-            Console.WriteLine(string.Format("Площадь квадрата {0:f2}", Length * Length));
+        public override double GetArea()
+        {
+            double area = Length * Length;
+            Console.WriteLine(string.Format("Площадь квадрата {0:f2}", area));
+            return area;
+        }
     }
 }

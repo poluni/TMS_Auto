@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Task51.Models
 {
-    class Triangle : Shape
+    internal class Triangle : Shape
     {
-        public Triangle(double a, double b, double c) : base(a, b, c)
+        public Triangle(double a, double b, double c)
         {
-            if (a + b > c && a + c > b && b + c > a)
+            if (a + b > c && a + c > b && b + c > a
+                && a > 0 && b > 0 && c > 0)
             {
                 A = a;
                 B = b;
@@ -41,5 +42,13 @@ namespace Task51.Models
                 return new ScaleneTriangle(A, B, C);
             }
         }
+
+        public double A { get; set; }
+
+        public double B { get; set; }
+
+        public double C { get; set; }
+
+        public override double GetArea() => 0.0;
     }
 }

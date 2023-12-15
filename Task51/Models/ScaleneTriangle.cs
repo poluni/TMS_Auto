@@ -12,11 +12,12 @@ namespace Task51.Models
         {
         }
 
-        public override void GetArea()
+        public override double GetArea()
         {
             double p = (A + B + C) / 2;
             double area = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
             Console.WriteLine(string.Format("Площадь обычного треугольника {0:f2}", area));
+            return area;
         }
     }
 }

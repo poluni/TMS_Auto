@@ -10,13 +10,17 @@ namespace Task51.Models
     {
         public Rectangle(double a) => Length = a;
 
-        public Rectangle(double a, double b) : base(a, b) => Width = b;
+        public Rectangle(double a, double b) : this(a) => Width = b;
 
         public double Length { get; set; }
 
         public double Width { get; set; }
 
-        public override void GetArea() =>
-            Console.WriteLine(string.Format("Площадь прямоугольника {0:f2}", Length * Width));
+        public override double GetArea()
+        {
+            double area = Length * Width;
+            Console.WriteLine(string.Format("Площадь прямоугольника {0:f2}", area));
+            return area;
+        }
     }
 }

@@ -14,8 +14,12 @@ namespace Task51.Models
         {
         }
 
-        public override void GetArea() =>
-             Console.WriteLine(string.Format("Площадь прямоугольного треугольника {0:f2}", 0.5 * A * B));
+        public override double GetArea()
+        {
+            double area = 0.5 * A * B;
+            Console.WriteLine(string.Format("Площадь прямоугольного треугольника {0:f2}", area));
+            return area;
+        }
 
     }
 }

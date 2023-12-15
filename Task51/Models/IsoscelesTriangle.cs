@@ -14,10 +14,11 @@ namespace Task51.Models
         {
         }
 
-        public override void GetArea()
+        public override double GetArea()
         {
             double area = Math.Sqrt(Math.Abs(A * A) - (B / 2) * (B / 2)) * B * 0.5;
             Console.WriteLine(string.Format("Площадь равнобедренного треугольника {0:f2}", area));
+            return area;
         }
     }
 }
