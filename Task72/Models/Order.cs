@@ -22,7 +22,7 @@ namespace Task72.Models
             ValidateDelivery(shipping);
         }
 
-        private void ValidateID(int id) 
+        private void ValidateID(int id)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace Task72.Models
             }
         }
 
-        private void ValidateDelivery(Shipping shipping)
+        private void ValidateDelivery(Shipping? shipping)
         {
             try
             {

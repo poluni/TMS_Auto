@@ -13,7 +13,7 @@ namespace Task72.CustomExeptions
             Console.WriteLine($"Тип исключения: {base.GetType()}");
         }
 
-        public DeliveryInformationMissingException(string message) : this() 
+        public DeliveryInformationMissingException(string message) : this()
         {
             Console.WriteLine(message);
         }

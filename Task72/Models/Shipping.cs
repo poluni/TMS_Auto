@@ -13,8 +13,8 @@ namespace Task72.Models
         {
             try
             {
-                if (string.IsNullOrEmpty(shippingMethods)) 
-                    throw new DeliveryInformationMissingException();                                 
+                if (string.IsNullOrEmpty(shippingMethods))
+                    throw new DeliveryInformationMissingException();
                 else ShippingMethod = shippingMethods;
             }
             catch (DeliveryInformationMissingException ex)
@@ -28,8 +28,8 @@ namespace Task72.Models
 
             try
             {
-                if (string.IsNullOrEmpty(deliveryAddress)) 
-                    throw new DeliveryInformationMissingException();                
+                if (string.IsNullOrEmpty(deliveryAddress))
+                    throw new DeliveryInformationMissingException();
                 else DeliveryAddress = deliveryAddress;
             }
             catch (DeliveryInformationMissingException ex)
@@ -39,7 +39,7 @@ namespace Task72.Models
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-            }            
+            }
         }
 
         public Shipping(int id, string shippingMethods, string deliveryAddress) : this(shippingMethods, deliveryAddress)

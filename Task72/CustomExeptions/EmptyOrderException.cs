@@ -14,7 +14,7 @@ namespace Task72.CustomExeptions
         }
 
         public EmptyOrderException(string message) : this()
-        { 
+        {
             Console.WriteLine(message);
         }
     }
