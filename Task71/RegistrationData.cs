@@ -17,13 +17,13 @@ namespace Task71
             ConfirmPassword = confirmPassword;
         }
 
-        private static string? Login { get; set; }
+        private static string Login { get; set; }
 
-        private static string? Password { get; set; }
+        private static string Password { get; set; }
 
-        private static string? ConfirmPassword { get; set; }
+        private static string ConfirmPassword { get; set; }
 
-        public static bool ValidateRegistrationData(string login, string password, string confirmPassword)
+        public static bool ValidateRegistrationData(string? login, string? password, string confirmPassword)
         {
             bool loginIsValid = false;
             bool passwordIsValid = false;
