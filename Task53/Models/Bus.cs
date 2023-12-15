@@ -1,6 +1,6 @@
 ﻿namespace Task53.Models
 {
-    internal class Bus : Transport
+    internal class Bus : PublicTransport
     {
         public Bus(string destination, string busNumber, DateTime departureTime, int seatsNumber) 
         {

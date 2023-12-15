@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task53.Models
 {
-    abstract class Transport : PublicTransportPark
+    abstract class Transport
     {
         public abstract string GetTransportType();
 
@@ -18,6 +18,6 @@ namespace Task53.Models
 
         public abstract DateTime GetDepartureTime();
 
-        protected sealed override string AddNewTransportType(string transportType) => String.Empty;
+        protected virtual void AddNewTransportType(string transportType){}
     }
 }

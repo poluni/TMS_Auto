@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task53.Models
 {
-    internal class Tramcar : Transport
+    internal class Tramcar : PublicTransport
     {
         public Tramcar(string destination, string tramNumber, DateTime departureTime, int seatsNumber)
         {

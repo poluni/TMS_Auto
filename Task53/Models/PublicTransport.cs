@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Task53.Models
 {
-    internal class PublicTransportPark
-    {
-        protected virtual string AddNewTransportType(string transportType) => String.Empty;
+    abstract class PublicTransport : Transport
+    { 
+        protected sealed override void AddNewTransportType(string transportType) { }
     }
 }
