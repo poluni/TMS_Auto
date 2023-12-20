@@ -7,8 +7,8 @@ namespace Task81
         static void Main(string[] args)
         {
             ArrayList? biblioteque = new ArrayList();
-            biblioteque.Add(new Book("Пушкин А.С.", "Капитанская дочка", "1837"));
-            biblioteque.Add(new Book("Остин Джейн", "Гордость и предубеждение", "1826"));
+            Book.AddBook(ref biblioteque, new Book("Пушкин А.С.", "Капитанская дочка", "1837"));
+            Book.AddBook(ref biblioteque, new Book("Остин Джейн", "Гордость и предубеждение", "1826"));
             Console.WriteLine("Начальный список:");
             Book.PrintBooks(biblioteque);
 
@@ -16,7 +16,7 @@ namespace Task81
             Console.WriteLine("Найдено:");
             Book.SearchByAuthor(biblioteque, searchAuthor);
 
-            string authorToDelete = "Пушкин А.С.1";
+            string authorToDelete = "Пушкин А.С.";
             string titleToDelete = "Капитанская дочка";
             Book.DeleteBook(ref biblioteque, authorToDelete, titleToDelete);
 

@@ -26,6 +26,14 @@ namespace Task81
 
         public string PublicationYear { get; set; }
 
+        public static void AddBook(ref ArrayList? biblioteque, Book? book)
+        {
+            if (book is not null)
+            {
+                biblioteque.Add(book);
+            }
+        }
+
         public static ArrayList DeleteBook(ref ArrayList? biblioteque, string searchAuthor, string searchTitle)
         {
             if (biblioteque.Count != 0)
@@ -64,7 +72,7 @@ namespace Task81
             {
                 if (book is Book item)
                 {
-                    Console.WriteLine($"{item.ID.ToString()} {item.Author} {item.Title}");                    
+                    Console.WriteLine($"{item.ID.ToString()} {item.Author} {item.Title}");
                 }
             }
             Console.WriteLine();
