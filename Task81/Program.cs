@@ -7,21 +7,21 @@ namespace Task81
         static void Main(string[] args)
         {
             ArrayList? biblioteque = new ArrayList();
-            Book.AddBook(ref biblioteque, new Book("Пушкин А.С.", "Капитанская дочка", "1837"));
-            Book.AddBook(ref biblioteque, new Book("Остин Джейн", "Гордость и предубеждение", "1826"));
+            Book book1 = new Book("Пушкин А.С.", "Капитанская дочка", "1837");
+            Book book2 = new Book("Остин Джейн", "Гордость и предубеждение", "1826");
+            Helper.AddBook(ref biblioteque, book1);
+            Helper.AddBook(ref biblioteque, book2);
             Console.WriteLine("Начальный список:");
-            Book.PrintBooks(biblioteque);
+            Helper.PrintBooks(biblioteque);
 
             string searchAuthor = "Остин Джейн";
             Console.WriteLine("Найдено:");
-            Book.SearchByAuthor(biblioteque, searchAuthor);
+            Helper.SearchByAuthor(biblioteque, searchAuthor);
 
-            string authorToDelete = "Пушкин А.С.";
-            string titleToDelete = "Капитанская дочка";
-            Book.DeleteBook(ref biblioteque, authorToDelete, titleToDelete);
+            Helper.DeleteBook(ref biblioteque, book1);
 
             Console.WriteLine("Конечный список:");
-            Book.PrintBooks(biblioteque);
+            Helper.PrintBooks(biblioteque);
 
             Helper.Exit();
         }

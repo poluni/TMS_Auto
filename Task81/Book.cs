@@ -26,56 +26,25 @@ namespace Task81
 
         public string PublicationYear { get; set; }
 
-        public static void AddBook(ref ArrayList? biblioteque, Book? book)
+        protected bool Equals(Book other)
         {
-            if (book is not null)
-            {
-                biblioteque.Add(book);
-            }
+            return ID == other.ID
+                && Author == other.Author
+                && Title == other.Title
+                && PublicationYear == other.PublicationYear;
         }
 
-        public static ArrayList DeleteBook(ref ArrayList? biblioteque, string searchAuthor, string searchTitle)
+        public override bool Equals(object? obj)
         {
-            if (biblioteque.Count != 0)
-            {
-                foreach (var book in biblioteque.ToArray())
-                {
-                    if (book is Book item)
-                    {
-                        if (item.Author.Equals(searchAuthor) && item.Title.Equals(searchTitle))
-                        {
-                            biblioteque.Remove(book);
-                        }
-                    }
-                }
-            }
-            return biblioteque;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Book)obj);
         }
 
-        public static void SearchByAuthor(ArrayList? biblioteque, string searchAuthor)
+        public override int GetHashCode()
         {
-            if (biblioteque.Count != 0)
-            {
-                foreach (var book in biblioteque)
-                {
-                    if (book is Book item)
-                    {
-                        if (item.Author.Equals(searchAuthor)) Console.WriteLine($"{item.ID.ToString()} {item.Author} {item.Title}");
-                    }
-                }
-            }
-        }
-
-        public static void PrintBooks(IList biblioteque)
-        {
-            foreach (var book in biblioteque)
-            {
-                if (book is Book item)
-                {
-                    Console.WriteLine($"{item.ID.ToString()} {item.Author} {item.Title}");
-                }
-            }
-            Console.WriteLine();
+            return HashCode.Combine(ID, Author, Title, PublicationYear);
         }
     }
 }
