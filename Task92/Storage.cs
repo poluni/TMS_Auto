@@ -9,40 +9,61 @@ namespace Task92
 {
     internal class Storage<T>
     {
-        private static T[]? S_storage = { };
+        private static T[]? s_storage = { };
 
         internal static T[] Add(T obj)
         {
-            Array.Resize(ref S_storage, S_storage.Length + 1);
-            S_storage[S_storage.Length - 1] = obj;
-            return S_storage;
+            Array.Resize(ref s_storage, s_storage.GetLength(0) + 1);
+            s_storage[s_storage.GetLength(0) - 1] = obj;
+            return s_storage;
         }
 
         public static T[] Remove(T obj)
         {
-            T[] tmpArray = S_storage.Except(new T[] { obj }).ToArray();
-            Array.Resize(ref S_storage, S_storage.Length - 1);
-            Array.Copy(tmpArray, S_storage, S_storage.Length);
-            return S_storage;
+            if (s_storage.Contains(obj))
+            {
+
+                T[] tmpArray = s_storage.Except(new T[] { obj }).ToArray();
+                Array.Resize(ref s_storage, s_storage.GetLength(0) - 1);
+                Array.Copy(tmpArray, s_storage, s_storage.GetLength(0));
+                return s_storage;
+            }
+            else
+            {
+                Console.WriteLine($"{obj} не содержится в массиве");
+            }
         }
 
         public static T? GetElementByIndex(int index)
         {
-            return S_storage[index];
+            try
+            {
+                return s_storage[index];
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new IndexOutOfRangeException();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception();
+            }
         }
 
         public static int GetLength()
         {
-            return S_storage.GetLength(0);
+            return s_storage.GetLength(0);
         }
 
         public static void Show()
         {
-            if (S_storage.GetLength(0) != 0)
+            if (s_storage.GetLength(0) != 0)
             {
-                for (int i = 0; i <= S_storage.GetUpperBound(0); i++)
+                for (int i = 0; i <= s_storage.GetUpperBound(0); i++)
                 {
-                    Console.Write($"{S_storage[i]} ");
+                    Console.Write($"{s_storage[i]} ");
                 }
             }
             else Console.Write($"Массив пуст ");
