@@ -8,18 +8,18 @@ namespace Task91
 {
     internal struct PointStruct<T>
     {
-        private T x;
-        private T y;
+        private T _x;
+        private T _y;
 
-        public T X { get; set; }
-        public T Y { get; set; }
+        public T X { get; set; } = default;
+        public T Y { get; set; } = default;
 
         public PointStruct(T x, T y)
         {
-            this.x = x;
-            this.y = y;
+            _x = x;
+            _y = y;
         }
 
-        public void Show() => Console.WriteLine($"({x}, {y})");
+        public void Show() => Console.WriteLine($"({_x}, {_y})");
     }
 }
