@@ -22,7 +22,6 @@ namespace Task92
         {
             if (s_storage.Contains(obj))
             {
-
                 T[] tmpArray = s_storage.Except(new T[] { obj }).ToArray();
                 Array.Resize(ref s_storage, s_storage.GetLength(0) - 1);
                 Array.Copy(tmpArray, s_storage, s_storage.GetLength(0));
@@ -31,6 +30,7 @@ namespace Task92
             else
             {
                 Console.WriteLine($"{obj} не содержится в массиве");
+                throw new Exception();
             }
         }
 
