@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task82
 {
-    internal static class Helper
+    internal static class Storage
     {
         public static void AddItem(ref Dictionary<string, Item>? inventory, Item? item)
         {
