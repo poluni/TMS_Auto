@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Task81
 {
-    internal class Helper
+    internal class Library
     {
         public static void Exit()
         {

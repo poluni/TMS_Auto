@@ -9,21 +9,21 @@ namespace Task81
             ArrayList? biblioteque = new ArrayList();
             Book book1 = new Book("Пушкин А.С.", "Капитанская дочка", "1837");
             Book book2 = new Book("Остин Джейн", "Гордость и предубеждение", "1826");
-            Helper.AddBook(ref biblioteque, book1);
-            Helper.AddBook(ref biblioteque, book2);
+            Library.AddBook(ref biblioteque, book1);
+            Library.AddBook(ref biblioteque, book2);
             Console.WriteLine("Начальный список:");
-            Helper.PrintBooks(biblioteque);
+            Library.PrintBooks(biblioteque);
 
             string searchAuthor = "Остин Джейн";
             Console.WriteLine("Найдено:");
-            Helper.SearchByAuthor(biblioteque, searchAuthor);
+            Library.SearchByAuthor(biblioteque, searchAuthor);
 
-            Helper.DeleteBook(ref biblioteque, book1);
+            Library.DeleteBook(ref biblioteque, book1);
 
             Console.WriteLine("Конечный список:");
-            Helper.PrintBooks(biblioteque);
+            Library.PrintBooks(biblioteque);
 
-            Helper.Exit();
+            Library.Exit();
         }
     }
 }
