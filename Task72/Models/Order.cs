@@ -46,7 +46,7 @@ namespace Task72.Models
         {
             try
             {
-                if (items is null || items.GetLength(0) == 0) throw new EmptyOrderException();
+                if (items is null || items.Length == 0) throw new EmptyOrderException();
                 else
                 {
                     itemList = items;
