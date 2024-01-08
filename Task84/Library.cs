@@ -39,7 +39,6 @@ namespace Task84
                 else IssuedBooks.Add(reader, new HashSet<Book>() { book });
             }
             else Console.WriteLine("Книга не найдена.");
-
         }
 
         public static void ReturnBook(Reader reader, Book book)
