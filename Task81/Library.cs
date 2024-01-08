@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace Task81
 {
-    internal class Library
+    internal static class Library
     {
+        private static ArrayList? biblioteque = new();
+
         public static void Exit()
         {
             Console.Write("Для выхода из программы нажмите любую клавишу...");
             Console.ReadKey();
         }
 
-        public static void AddBook(ref ArrayList? biblioteque, Book? book)
+        public static void AddBook(Book? book)
         {
             if (book is not null)
             {
@@ -23,7 +25,7 @@ namespace Task81
             }
         }
 
-        public static ArrayList DeleteBook(ref ArrayList? biblioteque, Book book)
+        public static ArrayList DeleteBook(Book book)
         {
             if (biblioteque.Count != 0)
             {
@@ -41,7 +43,7 @@ namespace Task81
             return biblioteque;
         }
 
-        public static void SearchByAuthor(ArrayList? biblioteque, string searchAuthor)
+        public static void SearchByAuthor(string searchAuthor)
         {
             if (biblioteque.Count != 0)
             {
@@ -55,7 +57,7 @@ namespace Task81
             }
         }
 
-        public static void PrintBooks(IList biblioteque)
+        public static void PrintBooks()
         {
             foreach (var book in biblioteque)
             {
