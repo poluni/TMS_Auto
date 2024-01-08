@@ -19,26 +19,19 @@ namespace Task84
 
         public static void CheckOutBook(Reader reader, Book book)
         {
-            bool isFound = false;
-            foreach (var bookItem in LibraryBooks.ToList())
+            if (LibraryBooks.Remove(book))
             {
-                if (bookItem.Equals(book))
+                if (!IssuedBooks.TryGetValue(reader, out var readerBooks))
                 {
-                    isFound = true;
-                    LibraryBooks.Remove(bookItem);
-                    break;
+                    readerBooks = new HashSet<Book>();
+                    IssuedBooks.Add(reader, readerBooks);
                 }
+                readerBooks.Add(book);
             }
-            if (isFound)
+            else
             {
-                if (IssuedBooks.ContainsKey(reader))
-                {
-                    HashSet<Book> value = IssuedBooks[reader];
-                    value.Add(book);
-                }
-                else IssuedBooks.Add(reader, new HashSet<Book>() { book });
+                Console.WriteLine("Книга не найдена.");
             }
-            else Console.WriteLine("Книга не найдена.");
         }
 
         public static void ReturnBook(Reader reader, Book book)
