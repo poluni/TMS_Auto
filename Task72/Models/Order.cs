@@ -66,9 +66,7 @@ namespace Task72.Models
         {
             try
             {
-                if (shipping == null)
-                    throw new DeliveryInformationMissingException();
-                else this.shipping = shipping;
+                this.shipping = shipping ?? throw new DeliveryInformationMissingException();
             }
             catch (DeliveryInformationMissingException ex)
             {
