@@ -37,31 +37,23 @@ namespace Task82
 
         public static void UpdateItem(ref Dictionary<string, Item>? inventory, string? id)
         {
-            Item value;
-            if (inventory.Count != 0 || !string.IsNullOrEmpty(id))
+            if (inventory != null && !string.IsNullOrEmpty(id) && inventory.TryGetValue(id, out Item item))
             {
-                if (inventory.TryGetValue(id, out value))
+                Console.Write("Введите цену для обновления: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal price))
                 {
-                    if (value is Item item)
-                    {
-                        Console.Write("Введите цену для обновления: ");
-                        decimal price;
-                        if (decimal.TryParse(Console.ReadLine().ToString(), out price))
-                        {
-                            item.Price = price;
-                        }
-                        Console.Write("Введите количество для обновления: ");
-                        int quantity;
-                        if (int.TryParse(Console.ReadLine().ToString(), out quantity))
-                        {
-                            item.Quantity = quantity;
-                        }
-                    }
+                    item.Price = price;
                 }
-                else
+
+                Console.Write("Введите количество для обновления: ");
+                if (int.TryParse(Console.ReadLine(), out int quantity))
                 {
-                    Console.WriteLine("Данный id отсутствует");
+                    item.Quantity = quantity;
                 }
+            }
+            else
+            {
+                Console.WriteLine("Данный id отсутствует");
             }
         }
 
