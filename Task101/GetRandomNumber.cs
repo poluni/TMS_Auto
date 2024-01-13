@@ -2,18 +2,25 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Task101
 {
-    delegate int GetNumber();
-
     internal class GetRandomNumber
     {
-        internal static int Generate()
+        private delegate int GetNumber();
+
+        internal int GenerateInt()
         {
-            return 1;
+            GetNumber intNumber = new(GenerateIntNumber);
+            return intNumber();
+        }
+
+        private int GenerateIntNumber()
+        {
+            return new Random().Next(0, 11);
         }
     }
 }
