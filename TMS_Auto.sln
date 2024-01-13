@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS_Auto", "TMS_Auto\TMS_Au
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate", "Delegate\Delegate.csproj", "{62E1ED0B-4ADB-42D7-880C-F68BE53A44CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task101", "Task101\Task101.csproj", "{6889FF06-29A3-4906-8567-83F3C0595144}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task101", "Task101\Task101.csproj", "{6889FF06-29A3-4906-8567-83F3C0595144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task102", "Task102\Task102.csproj", "{280BF64E-B47C-4358-81BE-D5AA15DE8C81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6889FF06-29A3-4906-8567-83F3C0595144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6889FF06-29A3-4906-8567-83F3C0595144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6889FF06-29A3-4906-8567-83F3C0595144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280BF64E-B47C-4358-81BE-D5AA15DE8C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280BF64E-B47C-4358-81BE-D5AA15DE8C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280BF64E-B47C-4358-81BE-D5AA15DE8C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280BF64E-B47C-4358-81BE-D5AA15DE8C81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
