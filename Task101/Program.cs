@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.Write($"{new GetRandomNumber().GenerateInt()} ");
-            Console.Write($"{new GetRandomNumber().GenerateInt()} ");
-            Console.Write($"{new GetRandomNumber().GenerateInt()} ");
+            Console.Write($"{new RandomNumber().GenerateInt()} ");
+            Console.Write($"{new RandomNumber().GenerateInt()} ");
+            Console.Write($"{new RandomNumber().GenerateInt()} ");
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Task101
 {
-    internal class GetRandomNumber
+    internal class RandomNumber
     {
         private delegate int GetNumber();
 
