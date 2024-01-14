@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task103.Models
 {
-    internal enum SortTypeEnum : ushort
+    public enum SortTypeEnum : ushort
     {
-        ShellSort,
-        CountingSort
+        ShellSorting,
+        BubbleSorting
     }
 }

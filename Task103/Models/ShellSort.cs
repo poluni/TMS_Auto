@@ -11,28 +11,31 @@ namespace Task103.Models
 {
     internal static class ShellSort
     {
+        private static int[] s_sortedArray = { };
+        private static int s_gap;
+
         public static int[] DoShellSort(int[] inputArray)
         {
-            int gap = inputArray.Length / 2;
-            int[] sortedArray = new int[inputArray.Length];
-            Array.Copy(inputArray, sortedArray, inputArray.Length);
-            while (gap >= 1)
+            s_gap = inputArray.Length / 2;
+            s_sortedArray = new int[inputArray.Length];
+            Array.Copy(inputArray, s_sortedArray, inputArray.Length);
+            while (s_gap >= 1)
             {
-                for (int i = 0; i < sortedArray.Length; i++)
+                for (int i = 0; i < s_sortedArray.Length; i++)
                 {
-                    for (int j = i - gap; j >= 0; j -= gap)
+                    for (int j = i - s_gap; j >= 0; j -= s_gap)
                     {
-                        if (sortedArray[j] > sortedArray[j + gap])
-                                { 
-                            int tmp = sortedArray[j];
-                            sortedArray[j] = sortedArray[j + gap];
-                            sortedArray[j + gap] = tmp;
+                        if (s_sortedArray[j] > s_sortedArray[j + s_gap])
+                        {
+                            int tmp = s_sortedArray[j];
+                            s_sortedArray[j] = s_sortedArray[j + s_gap];
+                            s_sortedArray[j + s_gap] = tmp;
                         }
-                    }                    
+                    }
                 }
-                gap /= 2;
+                s_gap /= 2;
             }
-            return sortedArray;
-        }        
+            return s_sortedArray;
+        }
     }
 }

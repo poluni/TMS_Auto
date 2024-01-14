@@ -12,14 +12,11 @@ namespace Task103
             int[] array = ArrayData.GenerateData(10);
             PrintHelper.PrintData(array);
 
-            Console.Write($"Отсортированный массив (Сортировка подсчетом): ");
-            int max = ArrayData.GetMaxValue(array);
-            int[] sortedArray1 = CountingSort.DoCountingSort(array, max);
-            PrintHelper.PrintData(sortedArray1);
-            
             Console.Write($"Отсортированный массив (Сортировка Шелла): ");
-            int[] sortedArray2 = ShellSort.DoShellSort(array);
-            PrintHelper.PrintData(sortedArray2);
+            new Sorting().Run(array, SortTypeEnum.ShellSorting);
+
+            Console.Write($"Отсортированный массив (Пузырьковая сортировка): ");
+            new Sorting().Run(array, SortTypeEnum.BubbleSorting);
         }
     }
 }
