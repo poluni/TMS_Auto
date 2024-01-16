@@ -11,6 +11,8 @@ namespace Task104
             calendarEvents.Add();
             calendarEvents.Add();
             PrintHelper.PrintCalendar(calendarEvents.GetCalendarEvents());
+
+            PrintHelper.PrintCalendar(calendarEvents.GetTodaysEvents());
         }
     }
 }
