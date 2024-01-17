@@ -7,87 +7,48 @@ using Task104.Helper;
 
 namespace Task104.Models
 {
-    internal class Calendar
+    public class Calendar
     {
-        private string title;
+        private static List<Event> s_CalendarEvents = [];
 
-        private static List<Calendar> s_CalendarEvents = [];
-
-        private static List<Calendar> s_TodaysEvents = [];
-
-        public string TitleEvent 
-        {
-            get 
-            { 
-                return title; 
-            }
-            set
-            {
-                if (value != null) title = value;
-                else throw new Exception("Название события не заполнено.");
-            }
-        }
-
-        public DateTime DateEvent { get; set; }
-
-        public string? DescriptionEvent { get; set; }
-
-        public Calendar() { }
-
-        private Calendar(string titleEvent, DateTime dateEvent) : this()
-        {
-            TitleEvent = titleEvent;
-            DateEvent = dateEvent;
-        }
-
-        private Calendar(string titleEvent, DateTime dateEvent, string? descriptionEvent) :
-            this(titleEvent, dateEvent)
-        {
-            DescriptionEvent = descriptionEvent;
-        }
+        private static List<Event> s_TodaysEvents = [];
 
         public void Add()
         {
+            Event eventDate = new();
             Console.Write("Введите название события: ");
-            TitleEvent = Console.ReadLine().Trim();
+            eventDate.Title = Console.ReadLine().Trim();
             Console.Write("Введите дату события в формате ГГГГ-ММ-ДД чч:мм:сс : ");
-            DateEvent = ConvertHelper.ConvertStringToDateTime(Console.ReadLine().Trim());
+            eventDate.Date = ConvertHelper.ConvertStringToDateTime(Console.ReadLine().Trim());
             Console.Write("Введите описание события: ");
-            DescriptionEvent = Console.ReadLine().Trim();
-            Calendar newDateEvent = new Calendar(TitleEvent, DateEvent, DescriptionEvent);
-            s_CalendarEvents.Add(newDateEvent);
+            eventDate.Description = Console.ReadLine().Trim();
+            s_CalendarEvents.Add(eventDate);
         }
-        
-        public List<Calendar> GetCalendarEvents()
+
+        public List<Event> GetCalendarEvents()
         {
             return s_CalendarEvents;
         }
 
-        public List<Calendar> GetTodaysEvents()
+        public List<Event> GetTodaysEvents()
         {
             foreach (var date in s_CalendarEvents)
             {
-                int res = DateTime.Compare(date.DateEvent, DateTime.Now);
+                int res = DateTime.Compare(date.Date, DateTime.Now);
                 if (res >= 0)
                 {
                     s_TodaysEvents.Add(date);
+                    OnHappenTonight(date);
                 }
             }
             return s_TodaysEvents;
         }
 
-        /*
-        public event EventHandler<Event> TodayHappening;
+        public event EventHandler<Event> HappenTonight;
 
-        public void Today()
+        public void OnHappenTonight(Event e)
         {
-            OnTodayHappening(new Event());
+            HappenTonight?.Invoke(this, e);
         }
-
-        public void OnTodayHappening(Event e)
-        {
-            TodayHappening?.Invoke(this, e);
-        }
-        */
     }
 }

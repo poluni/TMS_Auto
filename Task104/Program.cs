@@ -12,7 +12,11 @@ namespace Task104
             calendarEvents.Add();
             PrintHelper.PrintCalendar(calendarEvents.GetCalendarEvents());
 
-            PrintHelper.PrintCalendar(calendarEvents.GetTodaysEvents());
+            calendarEvents.HappenTonight += Notify;
+            calendarEvents.GetTodaysEvents();
         }
+
+        public static void Notify(object sender, Event e) =>
+            Console.WriteLine($"Уведомление о событии {e.Title} {e.Date} {e.Description} отправлено.");
     }
 }

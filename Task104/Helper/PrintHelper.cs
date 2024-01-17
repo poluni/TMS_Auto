@@ -9,11 +9,11 @@ namespace Task104.Helper
 {
     internal static class PrintHelper
     {
-        public static void PrintCalendar(List<Calendar> dates)
+        public static void PrintCalendar(List<Event> dates)
         {
             foreach (var date in dates)
             {
-                Console.WriteLine($"{date.TitleEvent} {date.DateEvent} {date.DescriptionEvent}");
+                Console.WriteLine($"{date.Date} {date.Title} {date.Description}");
             }
             Console.WriteLine();
         }
