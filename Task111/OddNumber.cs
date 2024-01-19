@@ -17,7 +17,7 @@ namespace Task111
         {
             var result = _testIntSet.Where(num => num % 2 == 1).Distinct();
             Console.WriteLine("Итоговый массив: ");
-            PrintHelper.Print(result, i => Console.Write($"{i} "));           
+            PrintHelper.Print(result, i => Console.Write($"{i} "));
         }
     }
 }
