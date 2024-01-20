@@ -1,12 +1,12 @@
-﻿using Task112;
+﻿using Task113;
 
-namespace Ефыл112
+namespace Task113
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            new Stat().Run();
+            new Sorting().Run();
         }
     }
 }

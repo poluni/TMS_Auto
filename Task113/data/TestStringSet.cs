@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace LINQ;
+namespace Task113.data;
 
 public class TestStringSet
 {
