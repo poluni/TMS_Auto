@@ -14,7 +14,7 @@ public class FirstTest : BaseTest
         IWebElement weightInput = Driver.FindElement(By.Name("weight"));
         IWebElement heightInput = Driver.FindElement(By.Name("height"));
         IWebElement calcButton = Driver.FindElement(By.Id("calc-mass-c"));
-        
+
         weightInput.SendKeys("80");
         heightInput.SendKeys("183");
         calcButton.Click();
@@ -27,21 +27,50 @@ public class FirstTest : BaseTest
     public void ValidateSKF()
     {
         Driver.Navigate().GoToUrl("https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148");
-        
-        Thread.Sleep(3000);
-        Driver.SwitchTo().Frame(1);
 
+        Thread.Sleep(3000);
+        Driver.SwitchTo().Frame(0);
+
+        IWebElement ageInput = Driver.FindElement(By.Id("age"));
+        IWebElement selectSexDropdown = Driver.FindElement(By.Id("sex"));
+        SelectElement selectSexElement = new SelectElement(selectSexDropdown);
+        IWebElement crInput = Driver.FindElement(By.Id("cr"));
         IWebElement selectDropdown = Driver.FindElement(By.Id("cr-size"));
         SelectElement selectElement = new SelectElement(selectDropdown);
-        
-        selectElement.SelectByIndex(1);
-        Thread.Sleep(2000);
-        
+        IWebElement selectRaceDropdown = Driver.FindElement(By.Id("race"));
+        SelectElement selectRaceElement = new SelectElement(selectRaceDropdown);
+        IWebElement massInput = Driver.FindElement(By.Id("mass"));
+        IWebElement growInput = Driver.FindElement(By.Id("grow"));
+        IWebElement calcButton = Driver.FindElement(By.TagName("button"));
+
+        ageInput.SendKeys("20");
+
+        selectSexElement.SelectByValue("M");
+        Thread.Sleep(3000);
+
+        crInput.SendKeys("115");
+
         selectElement.SelectByValue("mg");
-        Thread.Sleep(2000);
-        
-        selectElement.SelectByText("мкмоль/л");
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
+
+        selectRaceElement.SelectByValue("N");
+        Thread.Sleep(3000);
+
+        massInput.SendKeys("115");
+        growInput.SendKeys("195");
+
+        calcButton.Click();
+        Thread.Sleep(3000);
+
+        IWebElement mdrdText = Driver.FindElement(By.Id("mdrd_res"));
+        IWebElement ckdText = Driver.FindElement(By.Id("ckd_epi_res"));
+        IWebElement cgeText = Driver.FindElement(By.Id("cge_res"));
+        IWebElement schwartzText = Driver.FindElement(By.Id("schwartz_res"));
+
+        Assert.That(mdrdText.Text, Is.EqualTo("0.48"));
+        Assert.That(ckdText.Text, Is.EqualTo("0.4"));
+        Assert.That(cgeText.Text, Is.EqualTo("1.67"));
+        Assert.That(schwartzText.Text, Is.EqualTo("1.19"));
     }
 
     [Test]
@@ -49,7 +78,7 @@ public class FirstTest : BaseTest
     {
         Driver.Navigate().GoToUrl("https://home-ex.ru/calculation/");
         Thread.Sleep(5000);
-        
+
         Console.WriteLine(Driver.FindElement(By.ClassName("calc-result")).Text);
     }
 }
