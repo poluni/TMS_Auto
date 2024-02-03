@@ -1,6 +1,9 @@
+using AngleSharp.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumBasic.Core;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace SeleniumBasic.Tests;
 
@@ -79,6 +82,19 @@ public class FirstTest : BaseTest
         Driver.Navigate().GoToUrl("https://home-ex.ru/calculation/");
         Thread.Sleep(5000);
 
-        Console.WriteLine(Driver.FindElement(By.ClassName("calc-result")).Text);
+        IWebElement areaInput = Driver.FindElement(By.Id("area"));
+        IWebElement calcButton = Driver.FindElement(By.Id("btn_calculate"));
+
+        areaInput.SendKeys("30");
+        calcButton.Click();
+        Thread.Sleep(3000);
+
+        string parsedText = Driver.FindElement(By.ClassName("calc-result")).Text;
+        var pattern = "[^а-яА-Я0-9]+";
+        var normalizedText = Regex.Replace(parsedText, pattern, "");
+
+        string expectedResult = @"Требуемоеколичествоплашекламината45Количествоупаковокламината5Стоимостьламината0рубВесламината0кг";
+
+        Assert.That(normalizedText, Is.EqualTo(expectedResult));
     }
 }
