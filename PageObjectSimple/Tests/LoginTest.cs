@@ -1,8 +1,7 @@
-using NUnitTest.Pages;
-using SeleniumBasic.Helpers.Configuration;
-using SeleniumBasic.Pages;
+using PageObjectSimple.Helpers.Configuration;
+using PageObjectSimple.Pages;
 
-namespace SeleniumBasic.Tests;
+namespace PageObjectSimple.Tests;
 
 public class LoginTest : BaseTest
 {
@@ -13,11 +12,11 @@ public class LoginTest : BaseTest
         LoginPage loginPage = new LoginPage(Driver);
         loginPage.SuccessFulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
         DashboardPage dashboardPage = new DashboardPage(Driver);
-        
+
         // Проверка 
         Assert.That(dashboardPage.IsPageOpened);
     }
-    
+
     [Test]
     public void InvalidUsernameLoginTest()
     {
@@ -25,7 +24,7 @@ public class LoginTest : BaseTest
         Assert.That(
             new LoginPage(Driver)
                 .IncorrectLogin("ssdd", "")
-                .ErrorLabel.Text.Trim(), 
+                .ErrorLabel.Text.Trim(),
             Is.EqualTo("Email/Login or Password is incorrect. Please try again."));
     }
 }

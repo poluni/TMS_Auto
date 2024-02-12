@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace SeleniumBasic.Pages;
+namespace PageObjectSimple.Pages;
 
 public class MenuPage : BasePage
 {
@@ -9,7 +9,7 @@ public class MenuPage : BasePage
     // Описание элементов
     private static readonly By WorkingOnMenuBy = By.Id("inProgressLink");
 
-    
+
     public MenuPage(IWebDriver driver) : base(driver)
     {
     }
@@ -23,7 +23,7 @@ public class MenuPage : BasePage
     {
         return WorkingOnMenu.Displayed;
     }
-    
+
     // Методы
-    public IWebElement WorkingOnMenu => WaitsHelper.WaitForExists(WorkingOnMenuBy);  
+    public IWebElement WorkingOnMenu => WaitsHelper.WaitForExists(WorkingOnMenuBy);
 }

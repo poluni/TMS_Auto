@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace SeleniumBasic.Helpers;
+namespace PageObjectSimple.Helpers;
 
 public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 {
@@ -51,7 +51,7 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
             throw new WebDriverTimeoutException("Элемент не стал невидимым в течение заданного времени");
         }
     }
-    
+
     public bool WaitForVisibility(IWebElement element)
     {
         return _wait.Until(_ => element.Displayed);
@@ -64,9 +64,9 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
         {
             PollingInterval = TimeSpan.FromMilliseconds(50)
         };
-        
+
         fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-        
+
         // Использование
         return fluentWait.Until(_ => driver.FindElement(locator));
     }
