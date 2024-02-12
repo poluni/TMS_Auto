@@ -1,14 +1,14 @@
 using OpenQA.Selenium;
-using SeleniumBasic.Helpers;
-using SeleniumBasic.Helpers.Configuration;
+using PageObjectSimple.Helpers;
+using PageObjectSimple.Helpers.Configuration;
 
-namespace SeleniumBasic.Pages;
+namespace PageObjectSimple.Pages;
 
 public abstract class BasePage
 {
     protected IWebDriver Driver { get; private set; }
     protected WaitsHelper WaitsHelper { get; private set; }
-    
+
     public BasePage(IWebDriver driver, bool openPageByUrl = false)
     {
         Driver = driver;
@@ -19,10 +19,10 @@ public abstract class BasePage
             OpenPageByURL();
         }
     }
-    
+
     protected abstract string GetEndpoint();
     public abstract bool IsPageOpened();
-    
+
     protected void OpenPageByURL()
     {
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndpoint());

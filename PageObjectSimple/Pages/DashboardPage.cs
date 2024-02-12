@@ -1,11 +1,11 @@
 using OpenQA.Selenium;
 
-namespace SeleniumBasic.Pages;
+namespace PageObjectSimple.Pages;
 
 public class DashboardPage : BasePage
 {
     private static string END_POINT = "index.php?/dashboard";
-    
+
     // Описание элементов
     private static readonly By TitleLabelBy = By.ClassName("page_title");
 
@@ -16,7 +16,7 @@ public class DashboardPage : BasePage
     {
         MenuPage = new MenuPage(Driver);
     }
-    
+
     protected override string GetEndpoint()
     {
         return END_POINT;

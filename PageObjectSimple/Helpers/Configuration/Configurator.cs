@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace SeleniumBasic.Helpers.Configuration
+namespace PageObjectSimple.Helpers.Configuration
 {
     public static class Configurator
     {
@@ -46,6 +46,6 @@ namespace SeleniumBasic.Helpers.Configuration
         }
 
         public static string? BrowserType => Configuration[nameof(BrowserType)];
-        public static double WaitsTimeout => Double.Parse(Configuration[nameof(WaitsTimeout)]);
+        public static double WaitsTimeout => double.Parse(Configuration[nameof(WaitsTimeout)]);
     }
 }
