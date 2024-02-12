@@ -1,7 +1,6 @@
 using OpenQA.Selenium;
+using PageObjectSimple.Core;
 using PageObjectSimple.Helpers.Configuration;
-using SeleniumBasic.Core;
-using SeleniumBasic.Helpers;
 
 namespace PageObjectSimple.Tests;
 

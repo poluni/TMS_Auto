@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using PageObjectSimple.Helpers.Configuration;
-using SeleniumBasic.Core;
+using PageObjectSimple.Core;
 
 namespace PageObjectSimple.Core
 {
