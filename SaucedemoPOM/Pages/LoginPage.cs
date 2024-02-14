@@ -1,17 +1,16 @@
 using OpenQA.Selenium;
 
-namespace PageObjectSimple.Pages
+namespace SaucedemoPOM.Pages
 {
     public class LoginPage : BasePage
     {
-        private static readonly string END_POINT = "";
+        private static string END_POINT = "";
 
         // Описание элементов
-        private static readonly By EmailInputBy = By.Id("name");
+        private static readonly By UsernameInputBy = By.Id("user-name");
         private static readonly By PswInputBy = By.Id("password");
-        private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
-        private static readonly By LoginInButtonBy = By.Id("button_primary");
-        private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
+        private static readonly By LoginInButtonBy = By.Id("login-button");
+        private static readonly By ErrorButtonBy = By.CssSelector("[data-test=error]");
 
         // Инициализация класса
         public LoginPage(IWebDriver driver) : base(driver)
@@ -25,29 +24,28 @@ namespace PageObjectSimple.Pages
 
         public override bool IsPageOpened()
         {
-            return LoginInButton.Displayed && EmailInput.Displayed;
+            return LoginInButton.Displayed && UsernameInput.Displayed;
         }
 
         // Методы
-        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
-        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
+        public IWebElement UsernameInput => WaitsHelper.WaitForExists(UsernameInputBy);
+        public IWebElement ErrorButton => WaitsHelper.WaitForExists(ErrorButtonBy);
         public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
-        public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
         public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
 
         // Комплексные
-        public DashboardPage SuccessFulLogin(string username, string password)
+        public ProductsPage SuccessfullLogin(string username, string password)
         {
-            EmailInput.SendKeys(username);
+            UsernameInput.SendKeys(username);
             PswInput.SendKeys(password);
             LoginInButton.Click();
 
-            return new DashboardPage(Driver);
+            return new ProductsPage(Driver);
         }
 
         public LoginPage IncorrectLogin(string username, string password)
         {
-            EmailInput.SendKeys(username);
+            UsernameInput.SendKeys(username);
             PswInput.SendKeys(password);
             LoginInButton.Click();
 

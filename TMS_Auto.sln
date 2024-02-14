@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageObjectSimple", "PageObj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageObjectSteps", "PageObjectSteps\PageObjectSteps.csproj", "{56E48782-3F4F-4739-A36C-7C2A7690E3F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaucedemoPOM", "SaucedemoPOM\SaucedemoPOM.csproj", "{471B0320-F614-493A-8317-70388BA8FCFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{56E48782-3F4F-4739-A36C-7C2A7690E3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56E48782-3F4F-4739-A36C-7C2A7690E3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56E48782-3F4F-4739-A36C-7C2A7690E3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{471B0320-F614-493A-8317-70388BA8FCFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471B0320-F614-493A-8317-70388BA8FCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471B0320-F614-493A-8317-70388BA8FCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471B0320-F614-493A-8317-70388BA8FCFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
