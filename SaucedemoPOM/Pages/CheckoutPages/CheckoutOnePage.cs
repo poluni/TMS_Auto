@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SaucedemoPOM.Pages
+namespace SaucedemoPOM.Pages.CheckoutPages
 {
     public class CheckoutOnePage : BasePage
     {

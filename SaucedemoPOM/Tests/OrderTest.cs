@@ -1,4 +1,5 @@
 ﻿using SaucedemoPOM.Pages;
+using SaucedemoPOM.Pages.CheckoutPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
