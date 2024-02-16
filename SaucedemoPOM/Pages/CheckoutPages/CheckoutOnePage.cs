@@ -11,6 +11,8 @@ namespace SaucedemoPOM.Pages.CheckoutPages
     {
         private static string END_POINT = "checkout-step-one.html";
 
+        public HeaderPage HeaderPage;
+
         // Описание элементов
         private static readonly By ContinueInputBy = By.Id("continue");
         private static readonly By FirstnameInputBy = By.Id("first-name");
@@ -19,7 +21,10 @@ namespace SaucedemoPOM.Pages.CheckoutPages
         private static readonly By ErrorButtonBy = By.CssSelector("[data-test=error]");
 
         // Инициализация класса
-        public CheckoutOnePage(IWebDriver driver) : base(driver) { }
+        public CheckoutOnePage(IWebDriver driver) : base(driver)
+        {
+            HeaderPage = new HeaderPage(Driver);
+        }
 
         protected override string GetEndpoint()
         {
@@ -31,11 +36,11 @@ namespace SaucedemoPOM.Pages.CheckoutPages
             return TitleClass.Text.Trim().Equals("Checkout: Your Information");
         }
 
-        public void FillCustomerData()
+        public void FillCustomerData(string firstname, string lastname, string postalCode)
         {
-            FirstnameInput.SendKeys("Yan");
-            LastnameInput.SendKeys("Li");
-            PostalCodeInput.SendKeys("454fdg-vfdv445");
+            FirstnameInput.SendKeys(firstname);
+            LastnameInput.SendKeys(lastname);
+            PostalCodeInput.SendKeys(postalCode);
         }
 
         public bool IsValidCustomerData()
@@ -43,10 +48,10 @@ namespace SaucedemoPOM.Pages.CheckoutPages
             return !ErrorButton.Displayed;
         }
 
-        public CheckoutSecondePage GoToSecondStepCheckout()
+        public CheckoutSecondPage GoToSecondStepCheckout()
         {
             ContinueInput.Submit();
-            return new CheckoutSecondePage(Driver);
+            return new CheckoutSecondPage(Driver);
         }
 
         // Атомарные Методы

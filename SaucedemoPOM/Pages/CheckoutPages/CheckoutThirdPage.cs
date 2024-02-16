@@ -11,11 +11,16 @@ namespace SaucedemoPOM.Pages.CheckoutPages
     {
         private static string END_POINT = "checkout-step-two.html";
 
+        public HeaderPage HeaderPage;
+
         // Описание элементов
         private static readonly By CompleteTextClassBy = By.CssSelector("[class=complete-header]");
 
         // Инициализация класса
-        public CheckoutThirdPage(IWebDriver driver) : base(driver) { }
+        public CheckoutThirdPage(IWebDriver driver) : base(driver)
+        {
+            HeaderPage = new HeaderPage(Driver);
+        }
 
         protected override string GetEndpoint()
         {

@@ -10,24 +10,28 @@ namespace SaucedemoPOM.Tests
 {
     public class OrderTest : BaseLoginTest
     {
+        private static readonly string FIRSTNAME = "Yan";
+        private static readonly string LASTNAME = "Li";
+        private static readonly string POSTAL_CODE = "454fdg-vfdv445";
+
         [Test]
         public void MakeOrderTest()
         {
             ProductsPage allProductPage = new ProductsPage(Driver);
             ShoppingCartPage shoppingCartPage = new ShoppingCartPage(Driver);
             CheckoutOnePage checkoutOnePage = new CheckoutOnePage(Driver);
-            CheckoutSecondePage checkoutSecondPage = new CheckoutSecondePage(Driver);
+            CheckoutSecondPage checkoutSecondPage = new CheckoutSecondPage(Driver);
             CheckoutThirdPage checkoutThirdPage = new CheckoutThirdPage(Driver);
 
-            if (!allProductPage.IsEmptyCart()) allProductPage.RemoveItemFromCart();
+            if (!allProductPage.HeaderPage.IsEmptyCart()) allProductPage.RemoveItemFromCart();
 
             allProductPage.AddItemToCart();
 
-            allProductPage.GoToShoppingCart();
+            allProductPage.HeaderPage.GoToShoppingCart();
 
             shoppingCartPage.GoToCheckout();
 
-            checkoutOnePage.FillCustomerData();
+            checkoutOnePage.FillCustomerData(FIRSTNAME, LASTNAME, POSTAL_CODE);
 
             checkoutOnePage.GoToSecondStepCheckout();
 

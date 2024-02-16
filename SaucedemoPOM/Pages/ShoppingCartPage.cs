@@ -12,12 +12,17 @@ namespace SaucedemoPOM.Pages
     {
         private static string END_POINT = "cart.html";
 
+        public HeaderPage HeaderPage;
+
         // Описание элементов
         private static readonly By CheckoutButtonBy = By.Id("checkout");
         private static readonly By ItemInShoppingCartClassBy = By.CssSelector("[class=cart_item]");
 
         // Инициализация класса
-        public ShoppingCartPage(IWebDriver driver) : base(driver) { }
+        public ShoppingCartPage(IWebDriver driver) : base(driver)
+        {
+            HeaderPage = new HeaderPage(Driver);
+        }
 
         protected override string GetEndpoint()
         {

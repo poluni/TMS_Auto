@@ -37,6 +37,6 @@ public class LoginTest : BaseTest
         loginPage.SuccessfullLogin(VISUAL_ERROR_USERNAME, Configurator.AppSettings.Password);
         ProductsPage allProductPage = new ProductsPage(Driver);
 
-        Assert.That(allProductPage.IsCartVisualFailureExisted);
+        Assert.That(allProductPage.HeaderPage.IsCartVisualFailureExisted);
     }
 }

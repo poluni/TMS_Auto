@@ -10,13 +10,13 @@ public class ShoppingCartTest : BaseLoginTest
     {
         ProductsPage allProductPage = new ProductsPage(Driver);
 
-        if (!allProductPage.IsEmptyCart()) allProductPage.RemoveItemFromCart();
+        if (!allProductPage.HeaderPage.IsEmptyCart()) allProductPage.RemoveItemFromCart();
 
-        int cntBefore = allProductPage.GetCountItemInShoppingCart();
+        int cntBefore = allProductPage.HeaderPage.GetCountItemInShoppingCart();
 
         allProductPage.AddItemToCart();
 
-        int cntAfter = allProductPage.GetCountItemInShoppingCart();
+        int cntAfter = allProductPage.HeaderPage.GetCountItemInShoppingCart();
 
         Assert.Multiple(() =>
         {
@@ -30,13 +30,13 @@ public class ShoppingCartTest : BaseLoginTest
     {
         ProductsPage allProductPage = new ProductsPage(Driver);
 
-        if (allProductPage.IsEmptyCart()) allProductPage.AddItemToCart();
+        if (allProductPage.HeaderPage.IsEmptyCart()) allProductPage.AddItemToCart();
 
-        int cntBefore = allProductPage.GetCountItemInShoppingCart();
+        int cntBefore = allProductPage.HeaderPage.GetCountItemInShoppingCart();
 
         allProductPage.RemoveItemFromCart();
 
-        int cntAfter = allProductPage.GetCountItemInShoppingCart();
+        int cntAfter = allProductPage.HeaderPage.GetCountItemInShoppingCart();
 
         Assert.Multiple(() =>
         {
