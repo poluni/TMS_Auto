@@ -9,7 +9,7 @@ public class LoginTest : BaseTest
     private static readonly string VISUAL_ERROR_USERNAME = "visual_user";
 
     [Test]
-    public void SuccessfulLoginTest()
+    public void SuccessfullLoginTest()
     {
         // Простой вид
         LoginPage loginPage = new LoginPage(Driver);
