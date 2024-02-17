@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 using SaucedemoPOMSteps.Pages;
 using SaucedemoPOMSteps.Pages.CheckoutPages;
 
@@ -19,23 +20,27 @@ public class ShoppingCartSteps : BaseSteps
         _checkoutThirdPage = new CheckoutThirdPage(Driver);
     }
 
+    [AllureStep("Добавить рюкзак в корзину.")]
     public bool AddItemToCart()
     {
         _productsPage.ClickBackpackAddButton();
         return _productsPage.IsAddedToCart();
     }
 
+    [AllureStep("Удалить рюкзак из корзины.")]
     public bool RemoveItemFromCart()
     {
         _productsPage.ClickBackpackRemoveButton();
         return _productsPage.IsRemovedFromCart();
     }
 
+    [AllureStep("Проверить, что заказ завершен.")]
     public bool IsOrderCompleted()
     {
         return _checkoutThirdPage.OrderCompletedText().Equals("Thank you for your order!");
     }
 
+    [AllureStep("Если итоговый заказ пуст, то..")]
     public bool IsEmptyFinalShoppingCart()
     {
         return _checkoutSecondPage.FirstItemInFinalShoppingCartText().Equals(string.Empty);

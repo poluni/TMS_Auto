@@ -1,4 +1,6 @@
-﻿using SaucedemoPOMSteps.Helpers.Configuration;
+﻿using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
+using SaucedemoPOMSteps.Helpers.Configuration;
 using SaucedemoPOMSteps.Pages;
 using SaucedemoPOMSteps.Pages.CheckoutPages;
 using SaucedemoPOMSteps.Steps;
@@ -14,6 +16,11 @@ public class OrderTest : BaseLoginTest
     [Test]
     public void AddItemToOrderTest()
     {
+        AllureApi.SetTestName("Добавление продукта в заказ.");
+        AllureApi.SetDescription("Добавление продукта в заказ. Добавление успешно.");
+        AllureApi.SetSeverity(SeverityLevel.critical);
+        AllureApi.AddTags("UI");
+        AllureApi.AddParentSuite("Заказ");
 
         ShoppingCartSteps shoppingCartSteps = new ShoppingCartSteps(Driver);
 
@@ -37,6 +44,12 @@ public class OrderTest : BaseLoginTest
     [Test]
     public void RemoveItemFromOrderTest()
     {
+        AllureApi.SetTestName("Удаление продукта из заказа.");
+        AllureApi.SetDescription("Удаление продукта из заказа. Удаление успешно.");
+        AllureApi.SetSeverity(SeverityLevel.minor);
+        AllureApi.AddTags("UI");
+        AllureApi.AddParentSuite("Заказ");
+
         ShoppingCartSteps shoppingCartSteps = new ShoppingCartSteps(Driver);
 
         ProductsPage productsPage = new ProductsPage(Driver);
@@ -59,6 +72,12 @@ public class OrderTest : BaseLoginTest
     [Test]
     public void SuccessfullOrderTest()
     {
+        AllureApi.SetTestName("Успешная продажа.");
+        AllureApi.SetDescription("Успешная продажа.");
+        AllureApi.SetSeverity(SeverityLevel.blocker);
+        AllureApi.AddTags("UI");
+        AllureApi.AddParentSuite("Заказ");
+
         ShoppingCartSteps shoppingCartSteps = new ShoppingCartSteps(Driver);
         NavigationSteps navigationSteps = new NavigationSteps(Driver);
         UserSteps userSteps = new UserSteps(Driver);

@@ -1,6 +1,9 @@
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
 using SaucedemoPOMSteps.Pages;
 using SaucedemoPOMSteps.Pages.CheckoutPages;
+using SaucedemoPOMSteps.Helpers.Configuration;
 
 namespace SaucedemoPOMSteps.Steps;
 
@@ -19,24 +22,28 @@ public class NavigationSteps : BaseSteps
         _checkoutSecondePage = new CheckoutSecondPage(driver);
     }
 
+    [AllureStep("Перейти в корзину.")]
     public ShoppingCartPage GoToShoppingCart()
     {
         _productsPage.HeaderPage.ShoppingCartLink.Click();
         return new ShoppingCartPage(Driver);
     }
 
+    [AllureStep("Перейти к заполнению данных пользователя.")]
     public CheckoutOnePage GoToCheckout()
     {
         _shoppingCartPage.CheckoutButton.Click();
         return new CheckoutOnePage(Driver);
     }
 
+    [AllureStep("Перейти к подтверждению заказа.")]
     public CheckoutSecondPage GoToSecondStepCheckout()
     {
         _checkoutOnePage.ContinueInput.Submit();
         return new CheckoutSecondPage(Driver);
     }
 
+    [AllureStep("Подтвердить заказ.")]
     public CheckoutThirdPage GoToThirdStepCheckout()
     {
         _checkoutSecondePage.FinishInput.Submit();

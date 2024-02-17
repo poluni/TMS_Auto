@@ -1,3 +1,4 @@
+using NUnit.Allure.Attributes;
 using SaucedemoPOMSteps.Helpers.Configuration;
 using SaucedemoPOMSteps.Steps;
 

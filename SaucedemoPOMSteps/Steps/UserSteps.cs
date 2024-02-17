@@ -1,3 +1,5 @@
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
 using SaucedemoPOMSteps.Pages;
 using SaucedemoPOMSteps.Pages.CheckoutPages;
@@ -15,7 +17,8 @@ public class UserSteps : BaseSteps
         _userData = new CheckoutOnePage(Driver);
     }
 
-    public ProductsPage SuccessfullLogin(string username, string password)
+    [AllureStep("Авторизация пройдена:")]
+    public ProductsPage SuccessfullLogin([Name("Login: ")] string username, [Name("Password: ")] string password)
     {
         _loginPage.UsernameInput.SendKeys(username);
         _loginPage.PswInput.SendKeys(password);
@@ -24,7 +27,8 @@ public class UserSteps : BaseSteps
         return new ProductsPage(Driver);
     }
 
-    public LoginPage IncorrectLogin(string username, string password)
+    [AllureStep("Авторизация не пройдена:")]
+    public LoginPage IncorrectLogin([Name("Login: ")] string username, [Name("Password: ")] string password)
     {
         _loginPage.UsernameInput.SendKeys(username);
         _loginPage.PswInput.SendKeys(password);
@@ -33,6 +37,7 @@ public class UserSteps : BaseSteps
         return _loginPage;
     }
 
+    [AllureStep("Заполнить данными пользователя:")]
     public void FillUserData(string firstname, string lastname, string postalCode)
     {
         _userData.FirstnameInput.SendKeys(firstname);
