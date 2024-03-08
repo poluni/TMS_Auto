@@ -1,7 +1,8 @@
 ﻿using OpenQA.Selenium;
-using PageObjectSteps.Helpers.Configuration;
+using ChainOfInvocationsHW.Core;
+using ChainOfInvocationsHW.Helpers.Configuration;
 
-namespace PageObjectSteps.Core
+namespace ChainOfInvocationsHW.Core
 {
     public class Browser
     {

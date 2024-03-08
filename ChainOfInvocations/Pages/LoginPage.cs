@@ -1,10 +1,11 @@
+using ChainOfInvocationsHW.Elements;
 using OpenQA.Selenium;
 
-namespace PageObjectSteps.Pages
+namespace ChainOfInvocationsHW.Pages
 {
-    public class LoginPage : BasePage
+    public class LoginPage(IWebDriver? driver, bool openByURL = false) : BasePage(driver, openByURL)
     {
-        private static string END_POINT = "";
+        private const string END_POINT = "";
 
         // Описание элементов
         private static readonly By EmailInputBy = By.Id("name");
@@ -14,32 +15,23 @@ namespace PageObjectSteps.Pages
         private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
 
         // Инициализация класса
-        public LoginPage(IWebDriver driver) : base(driver)
-        {
-        }
-
         protected override string GetEndpoint()
         {
             return END_POINT;
         }
 
-        public override bool IsPageOpened()
+        protected override bool EvaluateLoadedStatus()
         {
             return LoginInButton.Displayed && EmailInput.Displayed;
         }
 
-        // Методы
-        // Методы поиска элементов
-        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
-        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
-        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
-        public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
-        public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
-        
-        // Методы действий с элементами
-        public void ClickLoginInButton() => LoginInButton.Click();
-        
-        // Методы получения свойств
         public string GetErrorLabelText() => ErrorLabel.Text.Trim();
+
+        // Методы
+        public UIElement EmailInput => new(Driver, EmailInputBy);
+        public UIElement ErrorLabel => new(Driver, ErrorLabelBy);//WaitsHelper.WaitForExists(ErrorLabelBy);
+        public UIElement PswInput => new(Driver, PswInputBy);
+        public UIElement RememberMeCheckbox => new(Driver, RememberMeCheckboxBy);
+        public Button LoginInButton => new Button(Driver, LoginInButtonBy);
     }
 }

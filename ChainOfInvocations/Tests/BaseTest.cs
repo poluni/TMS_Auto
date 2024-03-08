@@ -1,10 +1,10 @@
 using OpenQA.Selenium;
-using PageObjectSteps.Core;
-using PageObjectSteps.Helpers;
-using PageObjectSteps.Helpers.Configuration;
-using PageObjectSteps.Steps;
+using ChainOfInvocationsHW.Core;
+using ChainOfInvocationsHW.Steps;
+using ChainOfInvocationsHW.Helpers;
+using ChainOfInvocationsHW.Helpers.Configuration;
 
-namespace PageObjectSteps.Tests;
+namespace ChainOfInvocationsHW.Tests;
 
 //[Parallelizable(scope: ParallelScope.All)]
 //[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
@@ -14,7 +14,8 @@ public class BaseTest
     protected WaitsHelper WaitsHelper { get; private set; }
 
     protected NavigationSteps _navigationSteps;
-    
+    protected ProjectsSteps _projectsSteps;
+
     [SetUp]
     public void FactoryDriverTest()
     {
@@ -22,7 +23,8 @@ public class BaseTest
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
 
         _navigationSteps = new NavigationSteps(Driver);
-        
+        _projectsSteps = new ProjectsSteps(Driver);
+
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
     }
 

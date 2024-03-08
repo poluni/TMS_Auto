@@ -1,14 +1,16 @@
+using ChainOfInvocationsHW.Pages;
+using ChainOfInvocationsHW.Pages.ProjectPages;
 using OpenQA.Selenium;
-using PageObjectSteps.Pages;
-using PageObjectSteps.Pages.ProjectPages;
 
-namespace PageObjectSteps.Steps;
+namespace ChainOfInvocationsHW.Steps;
 
-public class BaseSteps(IWebDriver driver)
+public class BaseStep(IWebDriver driver)
 {
     protected readonly IWebDriver Driver = driver;
-    
+
     protected LoginPage? LoginPage { get; set; }
     protected DashboardPage? DashboardPage { get; set; }
     protected AddProjectPage? AddProjectPage { get; set; }
+    protected ProjectsPage? ProjectsPage { get; set; }
+    protected ProjectOverviewPage? ProjectOverviewPage { get; set; }
 }

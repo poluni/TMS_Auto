@@ -1,16 +1,18 @@
+using ChainOfInvocationsHW.Helpers.Configuration;
+using ChainOfInvocationsHW.Models;
 using OpenQA.Selenium;
-using PageObjectSteps.Pages;
+using ChainOfInvocationsHW.Pages;
+using ChainOfInvocationsHW.Pages.ProjectPages;
 
-namespace PageObjectSteps.Steps;
+namespace ChainOfInvocationsHW.Steps;
 
-public class NavigationSteps(IWebDriver driver) : BaseSteps(driver)
+public class NavigationSteps(IWebDriver driver) : BaseStep(driver)
 {
-    // Комплексные
     public DashboardPage SuccessfulLogin(string username, string password)
     {
         return Login<DashboardPage>(username, password);
     }
-    
+
     public LoginPage IncorrectLogin(string username, string password)
     {
         return Login<LoginPage>(username, password);
@@ -18,7 +20,7 @@ public class NavigationSteps(IWebDriver driver) : BaseSteps(driver)
 
     private T Login<T>(string username, string password) where T : BasePage
     {
-        LoginPage = new LoginPage(Driver);
+        LoginPage = new LoginPage(driver);
         LoginPage.EmailInput.SendKeys(username);
         LoginPage.PswInput.SendKeys(password);
         LoginPage.LoginInButton.Click();

@@ -1,38 +1,38 @@
+using ChainOfInvocationsHW.Pages.ProjectPages;
+using ChainOfInvocationsHW.Models;
 using OpenQA.Selenium;
-using PageObjectSteps.Pages;
-using PageObjectSteps.Pages.ProjectPages;
+using ChainOfInvocationsHW.Pages;
 
-namespace PageObjectSteps.Steps;
+namespace ChainOfInvocationsHW.Steps;
 
-public class ProjectsSteps : BaseSteps
+public class ProjectsSteps(IWebDriver driver) : BaseStep(driver)
 {
-    public ProjectsSteps(IWebDriver driver) : base(driver)
+    public ProjectOverviewPage AddFirstProject(Project project)
     {
-        AddProjectPage addProjectPage = new AddProjectPage(Driver);
-        DashboardPage dashboardPage = new DashboardPage(Driver);
+        return AddProject<ProjectOverviewPage>(project);
     }
 
-    public void AddProductToCart(List<string> Products)
+    public ProjectsPage AddAnotherProject(Project project)
     {
-    }
-    
-    public void CreateProject()
-    {
-        
+        return AddProject<ProjectsPage>(project);
     }
 
-    public void UpdateProject()
+    private T AddProject<T>(Project project) where T : BasePage
     {
-        
+        AddProjectPage = new AddProjectPage(driver);
+        AddProjectPage.NameInput.SendKeys(project.ProjectName);
+        AddProjectPage.AnnouncementTextArea.SendKeys(project.Announcement);
+        AddProjectPage.TypeRadioButton.SelectByIndex(project.ProjectType);
+        AddProjectPage.ShowAnnouncementCheckBox.Click();
+        AddProjectPage.AddButton.Click();
+
+        return (T)Activator.CreateInstance(typeof(T), Driver, false);
     }
 
-    public void ReadProject()
+    internal string GetProject(Project projectToFind)
     {
-        
-    }
-
-    public void DeleteProject()
-    {
-        
+        ProjectsPage projectsPage = new ProjectsPage(driver);
+        string txt = projectsPage.ProjectsTable.GetCell("Project", projectToFind.ProjectName, 0).Text;
+        return txt;
     }
 }
