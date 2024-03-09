@@ -28,7 +28,7 @@ public class BaseTest
     }
 
     [SetUp]
-    [AllureStep("Перейти на стартовую страницу.")]
+    [AllureStep("Перейти на стартовую  страницу.")]
     public void FactoryDriverTest()
     {
         Driver = new Browser().Driver;
