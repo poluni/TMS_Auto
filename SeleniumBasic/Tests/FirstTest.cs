@@ -96,8 +96,9 @@ public class FirstTest : BaseTest
         var pattern = "[^а-яА-Я0-9]+";
         var normalizedText = Regex.Replace(parsedText, pattern, "");
 
-        string expectedResult = @"Требуемоеколичествоплашекламината45Количествоупаковокламината5Стоимостьламината0рубВесламината0кг";
+        string expectedResult = @"Требуемое количество плашек ламината: 45\r\nКоличество упаковок ламината: 5\r\nСтоимость ламината: 0 руб\r\nВес ламината: 0 кг";
+        string normalizedExpectedResult = Regex.Replace(expectedResult, pattern, "");
 
-        Assert.That(normalizedText, Is.EqualTo(expectedResult));
+        Assert.That(normalizedText, Is.EqualTo(normalizedExpectedResult));
     }
 }
