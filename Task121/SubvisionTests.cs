@@ -18,6 +18,14 @@ namespace Task121
             Assert.IsNaN(_sut.Div<double, double>(x, y));
         }
 
+        [TestCase(0, Double.NaN), Order(2)]
+        [Description("0/NaN = NaN")]
+        [Category("zero")]
+        public void TestWithNanDevide_DoubleInputNan(double x, double y)
+        {
+            Assert.That(_sut.Div<double, double>(x, y), Is.EqualTo(Double.NaN));
+        }
+
         [TestCase(5, 0), Order(2)]
         [Description("5/0 = + бесконечность")]
         [Category("zero"), Category("Infinity")]
