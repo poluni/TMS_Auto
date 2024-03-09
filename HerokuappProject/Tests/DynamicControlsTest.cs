@@ -20,9 +20,11 @@ public class DynamicControlsTest : BaseTest
 
         removeBtn.Click();
 
-        Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("message")).Text, Is.EqualTo("It's gone!"));
-
-        Assert.That(WaitsHelper.WaitForElementInvisible(checkbox));
+        Assert.Multiple(() =>
+        {
+            Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("message")).Text, Is.EqualTo("It's gone!"));
+            Assert.That(WaitsHelper.WaitForElementInvisible(checkbox));
+        });
     }
 
     [Test]
