@@ -7,7 +7,7 @@ namespace Task121
         [OneTimeSetUp]
         public void OneTimeSetup()
         {
-            Console.WriteLine("Запускаем тесты для проверки Generic метода");
+            Console.WriteLine("Running tests for Generic method check.");
         }
 
         #region Sbyte Type Tests
