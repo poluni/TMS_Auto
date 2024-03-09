@@ -70,10 +70,13 @@ public class FirstTest : BaseTest
         IWebElement cgeText = Driver.FindElement(By.Id("cge_res"));
         IWebElement schwartzText = Driver.FindElement(By.Id("schwartz_res"));
 
-        Assert.That(mdrdText.Text, Is.EqualTo("0.48"));
-        Assert.That(ckdText.Text, Is.EqualTo("0.4"));
-        Assert.That(cgeText.Text, Is.EqualTo("1.67"));
-        Assert.That(schwartzText.Text, Is.EqualTo("1.19"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(mdrdText.Text, Is.EqualTo("0.48"));
+            Assert.That(ckdText.Text, Is.EqualTo("0.4"));
+            Assert.That(cgeText.Text, Is.EqualTo("1.67"));
+            Assert.That(schwartzText.Text, Is.EqualTo("1.19"));
+        });
     }
 
     [Test]
