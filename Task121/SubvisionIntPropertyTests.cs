@@ -20,21 +20,9 @@ namespace Task121
         };
 
         [TestCaseSource(nameof(_intTestData))]
-        public void TestProperty_isNetral(int x, int y, int result)
+        public void TestProperty_Devision(int x, int y, int result)
         {
             Assert.That(_sut.Div<int, int> (x, y), Is.EqualTo(result));
-        }
-
-        [TestCaseSource(nameof(_intTestData))]
-        public void TestProperty_isReverese(int x, int y, int result)
-        {
-            Assert.That(_sut.Div<int, int>(x, y), Is.EqualTo(result));
-        }
-
-        [TestCaseSource(nameof(_intTestData))]
-        public void TestProperty_isNullable(int x, int y, int result)
-        {
-            Assert.That(_sut.Div<int, int>(x, y), Is.EqualTo(result));
         }
     }
 }
