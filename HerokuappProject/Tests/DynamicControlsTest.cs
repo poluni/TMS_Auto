@@ -40,8 +40,10 @@ public class DynamicControlsTest : BaseTest
 
         enableBtn.Click();
 
-        Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("message")).Text, Is.EqualTo("It's enabled!"));
-
-        Assert.That(input.Enabled);
+        Assert.Multiple(() =>
+        {
+            Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("message")).Text, Is.EqualTo("It's enabled!"));
+            Assert.That(input.Enabled);
+        });
     }
 }
