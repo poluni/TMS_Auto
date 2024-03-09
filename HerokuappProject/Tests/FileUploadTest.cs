@@ -25,9 +25,7 @@ public class FileUploadTest : BaseTest
 
         WaitsHelper.WaitForExists(By.Id("file-submit")).Submit();
 
-        Thread.Sleep(3000);
-
-        var uploadedFile = WaitsHelper.WaitForVisibilityLocatedBy(By.Id("uploaded-files"));
+        var uploadedFile = WaitsHelper.WaitForExists(By.Id("uploaded-files"));
 
         Assert.That(uploadedFile.Text, Is.EqualTo("download.jpeg"));
     }
