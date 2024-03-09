@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeSingleton", "NativeSi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueOfObjects", "ValueOfObjects\ValueOfObjects.csproj", "{BA0AD2CD-3D12-44BB-8AD5-A67B40553743}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfInvocationsHW", "ChainOfInvocationsHW\ChainOfInvocationsHW.csproj", "{A2353E17-9B2C-4ED0-A268-2D097FE87E5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueOfObjectsHW", "ValueOfObjectsHW\ValueOfObjectsHW.csproj", "{54749D4B-78E2-4498-897A-C8EFBB58CAAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{BA0AD2CD-3D12-44BB-8AD5-A67B40553743}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA0AD2CD-3D12-44BB-8AD5-A67B40553743}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA0AD2CD-3D12-44BB-8AD5-A67B40553743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2353E17-9B2C-4ED0-A268-2D097FE87E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2353E17-9B2C-4ED0-A268-2D097FE87E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2353E17-9B2C-4ED0-A268-2D097FE87E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2353E17-9B2C-4ED0-A268-2D097FE87E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54749D4B-78E2-4498-897A-C8EFBB58CAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54749D4B-78E2-4498-897A-C8EFBB58CAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54749D4B-78E2-4498-897A-C8EFBB58CAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54749D4B-78E2-4498-897A-C8EFBB58CAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
