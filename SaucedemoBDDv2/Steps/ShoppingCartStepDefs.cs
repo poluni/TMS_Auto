@@ -13,7 +13,7 @@ using SaucedemoCore.Pages.CheckoutPages;
 namespace SaucedemoBDDv2.Steps;
 
 [Binding]
-public class ShoppingCartStepDefs : BaseSteps
+public sealed class ShoppingCartStepDefs : BaseSteps
 {
     private ShoppingCartSteps _shoppingCartSteps;
     private readonly ProductsPage _productsPage;

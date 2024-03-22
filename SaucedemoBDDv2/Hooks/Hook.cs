@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 namespace SaucedemoBDDv2.Hooks;
 
 [Binding]
-public class Hooks
+public sealed class Hooks
 {
     private readonly Browser _browser;
 
