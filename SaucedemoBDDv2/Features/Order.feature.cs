@@ -107,19 +107,19 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("The user added one item to the shopping cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.And("Went to the shopping cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Navigated to the shopping cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 10
- testRunner.And("Went to checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Navigated to checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 11
  testRunner.And("Filled user data FIRSTNAME \"Test\", LASTNAME \"Test\" AND POSTAL_CODE \"12578\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 12
- testRunner.And("Went to second step checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Navigated to second step checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 13
- testRunner.And("Went to third step checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Navigated to third step checkout", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 14
  testRunner.Then("Order is completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
