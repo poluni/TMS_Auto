@@ -12,7 +12,7 @@ public class FormPage : BasePage
     private static readonly By FormBy = By.Id("feedbackForm");
     private static readonly By ColorRadioButtonBy = By.Name("fav_color");
     private static readonly By DrinkCheckboxBy = By.Name("fav_drink");
-    private static readonly By DropDownBy = By.Name("siblings");
+    private static readonly By DropDownBy = By.XPath("//select[@name='siblings']/child::option");
 
     // Инициализация класса
     public FormPage(IWebDriver driver) : base(driver)

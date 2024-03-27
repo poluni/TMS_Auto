@@ -35,17 +35,6 @@ public class BaseTest
     [TearDown]
     public void TearDown()
     {
-        /*
-        if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
-            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
-            {
-                Screenshot screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
-                byte[] screenshotBytes = screenshot.AsByteArray;
-
-                AllureApi.AddAttachment("Screenshot", "image/png", screenshotBytes);
-                AllureApi.AddAttachment("data.txt", "text/plain", Encoding.UTF8.GetBytes(""));
-            }
-        */
         Driver.Quit();
     }
 }
